@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>W-9 Compliance Form | CTS Transportation</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: "#002F6C",
+                            light: "#1e4c8c",
+                            dark: "#001d4a",
+                        },
+                        accent: "#FBB917",
+                        surface: {
+                            DEFAULT: "#F9FBFF",
+                            dark: "#121417",
+                        },
+                    },
+                    fontFamily: {
+                        headline: ["Outfit", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
+                    },
+                    borderRadius: {
+                        "3xl": "1.5rem",
+                        "4xl": "2rem",
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .form-input-focus:focus {
+            box-shadow: 0 0 0 4px rgba(0, 47, 108, 0.1);
+            border-color: #002F6C;
+            outline: none;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 47, 108, 0.05);
+        }
+        .floating-card {
+            box-shadow: 0 10px 40px -12px rgba(0, 47, 108, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-slate-800 font-body min-h-screen flex flex-col">
+
+    <!-- Premium Header Consistent with Home -->
+    <header class="glass-header fixed top-0 left-0 w-full z-50">
+        <div class="flex justify-between items-center w-full px-6 md:px-12 h-20 max-w-7xl mx-auto">
+            <div class="flex items-center gap-3 group cursor-pointer" onclick="window.location.href='index.html'">
+                <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-xl shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+                </div>
+                <h1 class="font-headline font-black text-primary uppercase tracking-wider text-xl hidden sm:block">
+                    CTS <span class="text-primary-light opacity-80">TRANSPORT</span>
+                </h1>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                    <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-1">Compliance Phase</span>
+                    <div class="w-32 h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                        <div class="bg-accent h-full w-[15%]" style="transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)"></div>
+                    </div>
+                </div>
+                <div class="w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-accent to-primary flex items-center justify-center shadow-lg">
+                    <img alt="User" class="w-full h-full rounded-full object-cover border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzo3zf-cIFz5EVEDNzbENQTwJOAoilirbGDUxrtk8Sl1Y314nyKvYokC63XvCimtin-z4-oJYQLCh1OhDrb-ssMhF7s_JOCm1A_ycIKTBJxFd-uORqViJ2xDbijJXwMbAwezGgRx7LmTmjEOJgzYgb8XtETseEnQInqmGn3vxV9zB1Ji29Z0fqja2CnbjiQC7BQkGS29MRUAtU2C8p82fWW-HtqfBhwlIF1sHRMP4yrdEBHHOFW0HKrohrd9hTdT84d2mhp_6dFaY"/>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow pt-32 pb-32 px-6 max-w-3xl mx-auto w-full">
+        <!-- Hero Section -->
+        <section class="mb-12">
+            <div class="inline-flex items-center gap-2 bg-primary/5 px-4 py-1.5 rounded-full mb-6">
+                <span class="material-symbols-outlined text-primary text-sm" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+                <span class="text-primary font-black text-[10px] uppercase tracking-[0.2em]">Secure Tax Disclosure</span>
+            </div>
+            <h2 class="font-headline font-black text-4xl md:text-5xl text-primary tracking-tight mb-4">
+                W-9 Compliance <br/>
+                <span class="text-slate-400">The Digital Ledger</span>
+            </h2>
+            <p class="text-slate-500 text-lg leading-relaxed max-w-xl font-medium">
+                Request for Taxpayer Identification Number and Certification. Please complete the following professional disclosure.
+            </p>
+        </section>
+
+        <!-- Main Form -->
+        <form class="space-y-10">
+            <!-- Section 1: Identification -->
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-10 floating-card border border-slate-100 space-y-8">
+                <div class="flex items-center gap-4 py-2 border-b border-slate-50">
+                    <span class="text-2xl font-black text-primary/10">01</span>
+                    <h3 class="font-headline font-extrabold text-xl text-primary uppercase tracking-wider">Entity Identification</h3>
+                </div>
+                
+                <div class="space-y-6">
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest ml-1" for="name">Legal Name of Individual/Entity</label>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold form-input-focus placeholder:text-slate-300 transition-all" id="name" placeholder="As shown on your income tax return" type="text">
+                    </div>
+                    
+                    <div class="space-y-2">
+                        <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest ml-1" for="business-name">Business Name (Optional)</label>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold form-input-focus placeholder:text-slate-300 transition-all" id="business-name" placeholder="DBA or Disregarded Entity Name" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Federal Tax Classification -->
+            <div class="bg-white rounded-[2.5rem] p-8 md:p-10 floating-card border border-slate-100 space-y-8">
+                <div class="flex items-center justify-between py-2 border-b border-slate-50">
+                    <div class="flex items-center gap-4">
+                        <span class="text-2xl font-black text-primary/10">02</span>
+                        <h3 class="font-headline font-extrabold text-xl text-primary uppercase tracking-wider">Tax Classification</h3>
+                    </div>
+                    <span class="material-symbols-outlined text-primary/30" data-icon="info">info</span>
+                </div>
+
+                <div class="grid gap-4">
+                    <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">Individual / Sole Proprietor</span>
+                    </label>
+                    <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">C Corporation</span>
+                    </label>
+                    <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">S Corporation</span>
+                    </label>
+                    <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">Partnership / LP</span>
+                    </label>
+                    
+                    <div class="p-6 bg-slate-50 rounded-3xl space-y-4 border border-dashed border-slate-200">
+                        <label class="flex items-center gap-4 cursor-pointer group">
+                            <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                            <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">Limited Liability Company (LLC)</span>
+                        </label>
+                        <div class="pl-10">
+                            <input class="w-full bg-white px-4 py-3 text-xs font-bold rounded-xl border border-slate-100 focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-slate-300" placeholder="Enter Classification (C=C corp, S=S corp, P=Partnership)" type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Exemptions & Address -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-primary/5 rounded-[2.5rem] p-8 border border-primary/10 space-y-6">
+                    <h3 class="text-xs font-black text-primary uppercase tracking-[0.2em]">03. Exemptions</h3>
+                    <div class="space-y-4">
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-primary/60 uppercase ml-1" for="exempt-payee">Payee Code</label>
+                            <input class="w-full bg-white border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="exempt-payee" placeholder="Code" type="text" maxlength="2">
+                        </div>
+                        <div class="space-y-1">
+                            <label class="text-[10px] font-black text-primary/60 uppercase ml-1" for="fatca">FATCA Exemption</label>
+                            <input class="w-full bg-white border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="fatca" placeholder="Exemption Code" type="text" maxlength="2">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] p-8 floating-card border border-slate-100 space-y-6">
+                    <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">04. Contact</h3>
+                    <div class="space-y-4">
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="address" placeholder="Address, Apt/Suite" type="text">
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="city-state-zip" placeholder="City, State, Zip" type="text">
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="pt-8 space-y-8">
+                <div class="flex gap-4">
+                    <button type="button" onclick="window.location.href='index.html'" class="flex-1 bg-white border-2 border-slate-100 text-slate-400 font-black py-5 rounded-2xl flex items-center justify-center gap-3 hover:text-primary hover:border-primary/20 active:scale-95 transition-all text-xs tracking-widest">
+                        <span class="material-symbols-outlined text-base">arrow_back</span>
+                        BACK
+                    </button>
+                    <button type="submit" class="flex-[2] bg-primary text-white font-headline font-black py-5 rounded-2xl shadow-xl shadow-primary/20 flex items-center justify-center gap-4 hover:bg-primary-dark active:scale-95 transition-all text-xs tracking-widest tracking-widest">
+                        CONTINUE TO SIGN
+                        <span class="material-symbols-outlined text-base">draw</span>
+                    </button>
+                </div>
+                
+                <div class="p-6 bg-slate-50 rounded-3xl text-center">
+                   <p class="text-[10px] text-slate-400 font-medium px-4 leading-relaxed">
+                        By continuing, you certify under penalty of perjury that the information provided is correct and you are a US person or other US entity.
+                    </p>
+                </div>
+            </div>
+        </form>
+    </main>
+
+    <!-- Mobile Navigation -->
+    <nav class="md:hidden fixed bottom-6 left-6 right-6 z-50">
+        <div class="bg-white/90 backdrop-blur-xl border border-white/40 shadow-2xl rounded-3xl flex justify-around items-center p-3">
+            <a href="index.html" class="flex flex-col items-center justify-center text-slate-400 px-6 py-3">
+                <span class="material-symbols-outlined text-xl">speed</span>
+                <span class="text-[9px] font-black uppercase tracking-tighter mt-1">Start</span>
+            </a>
+            <div class="flex flex-col items-center justify-center bg-primary text-white rounded-2xl px-6 py-3 shadow-lg shadow-primary/30">
+                <span class="material-symbols-outlined text-xl" style="font-variation-settings: 'FILL' 1;">description</span>
+                <span class="text-[9px] font-black uppercase tracking-tighter mt-1">Form</span>
+            </div>
+            <div class="flex flex-col items-center justify-center text-slate-400 px-6 py-3">
+                <span class="material-symbols-outlined text-xl">person</span>
+                <span class="text-[9px] font-black uppercase tracking-tighter mt-1">Profile</span>
+            </div>
+        </div>
+    </nav>
+
+</body>
+</html>
