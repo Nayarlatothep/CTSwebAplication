@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>CTS Transportation - Driver Application</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700;800;900&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-bright": "#f8f9fa",
+                        "on-background": "#2b3437",
+                        "on-secondary-fixed": "#29434e",
+                        "primary-dim": "#2f518f",
+                        "on-primary-fixed": "#183d7b",
+                        "tertiary-fixed": "#d3ceef",
+                        "on-error": "#fff7f6",
+                        "on-tertiary-container": "#47445f",
+                        "tertiary-container": "#d3ceef",
+                        "inverse-on-surface": "#9b9d9e",
+                        "primary": "#3c5d9c",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-high": "#e3e9ec",
+                        "error-dim": "#4e0309",
+                        "background": "#f8f9fa",
+                        "on-secondary-container": "#3c5561",
+                        "on-error-container": "#752121",
+                        "on-surface": "#2b3437",
+                        "on-tertiary-fixed": "#34314b",
+                        "on-primary": "#f7f7ff",
+                        "on-primary-container": "#2e508e",
+                        "error-container": "#fe8983",
+                        "on-secondary-fixed-variant": "#455f6b",
+                        "outline-variant": "#abb3b7",
+                        "secondary-container": "#cbe7f5",
+                        "primary-fixed-dim": "#c3d4ff",
+                        "on-tertiary": "#fcf7ff",
+                        "secondary-fixed": "#cbe7f5",
+                        "surface-container-highest": "#dbe4e7",
+                        "surface-variant": "#dbe4e7",
+                        "primary-fixed": "#d8e2ff",
+                        "secondary": "#49636f",
+                        "surface-container": "#eaeff1",
+                        "inverse-surface": "#0c0f10",
+                        "surface-tint": "#3c5d9c",
+                        "surface-container-low": "#f1f4f6",
+                        "tertiary-fixed-dim": "#c5c0e0",
+                        "primary-container": "#d8e2ff",
+                        "on-surface-variant": "#586064",
+                        "on-primary-fixed-variant": "#395a99",
+                        "tertiary": "#5f5c78",
+                        "tertiary-dim": "#53506b",
+                        "secondary-fixed-dim": "#bdd9e6",
+                        "on-secondary": "#f2faff",
+                        "secondary-dim": "#3d5762",
+                        "on-tertiary-fixed-variant": "#504e69",
+                        "outline": "#737c7f",
+                        "inverse-primary": "#99b8fe",
+                        "surface-dim": "#d1dce0",
+                        "error": "#9f403d",
+                        "surface": "#f8f9fa"
+                    },
+                    fontFamily: {
+                        "headline": ["Public Sans"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Public Sans', sans-serif; }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+    <!-- TopAppBar -->
+    <header class="fixed top-0 w-full z-50 flex justify-between items-center px-6 h-16 bg-white dark:bg-slate-900 border-b-0">
+        <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
+            <span class="material-symbols-outlined text-blue-900 dark:text-blue-400" data-icon="menu">menu</span>
+            <span class="text-xl font-black text-blue-900 dark:text-blue-400 tracking-tight">CTS TRANSPORTATION</span>
+        </div>
+        <div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center overflow-hidden">
+            <img alt="User profile" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNGm3VgY5Us-BTDFmNMHbjheMpjQ7a046phuvGYkZWNtgXppULFyG2FQaFvQIcLVjhGJrgJt4kdPEm_k6Yu83CUyXuTuHTv6uD-F-nuntfxAUjPOjGpDc5GBvZv30y0HtufPUB4EGxqOGz73nHrxCsGAC_8ORj0553Zur5_3pxAP3c3JNSqoec-NX40lttwezNI_JL6DP7UwmA_dg0pN3URJFCQgHIcS6sHCY416wHzNYCSq67vy5sG7LAfXVQ2tYOWDTw4eEy9gI">
+        </div>
+    </header>
+    <main class="flex-grow pt-24 pb-32 px-4 max-w-2xl mx-auto w-full">
+        <!-- Page Title -->
+        <div class="mb-10">
+            <h1 class="text-[3.5rem] font-black leading-tight tracking-tighter text-on-surface mb-2">DRIVER<br>FILE</h1>
+            <p class="text-on-surface-variant font-medium body-md border-l-4 border-primary pl-4">Compliance Checklist &amp; Application Data</p>
+        </div>
+        <!-- Driver Info Section -->
+        <section class="bg-surface-container-low p-6 rounded-xl mb-8">
+            <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg" data-icon="person">person</span>
+                Driver Identification
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Driver's Name</label>
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="Full Legal Name" type="text">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">SSN</label>
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="XXX-XX-XXXX" type="password">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Date of Birth</label>
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" type="date">
+                </div>
+                <div class="flex flex-col gap-1">
+                    <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">DL#</label>
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="License Number" type="text">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">State</label>
+                        <select class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2">
+                            <option>TX</option>
+                            <option>OK</option>
+                            <option>LA</option>
+                        </select>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Class: [ ]cdl</label>
+                        <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="A" type="text">
+                    </div>
+                </div>
+                <div class="flex items-center gap-3 pt-6">
+                    <input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary" id="cdl_status" type="checkbox">
+                    <label class="font-bold text-on-surface select-none" for="cdl_status">CDL Endorsement</label>
+                </div>
+            </div>
+        </section>
+        <!-- Document Checklist Section -->
+        <section class="space-y-4">
+            <h2 class="text-primary font-bold uppercase tracking-widest text-sm mb-6 flex items-center gap-2">
+                <span class="material-symbols-outlined text-lg" data-icon="fact_check">fact_check</span>
+                Document Compliance Checklist
+            </h2>
+            <!-- Checklist Item 1 -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-tertiary">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <div class="flex-grow">
+                    <span class="block font-semibold text-on-surface">Completed and Signed Application</span>
+                </div>
+            </div>
+            <!-- Checklist Item 2 -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-tertiary">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <div class="flex-grow">
+                    <span class="block font-semibold text-on-surface">(10) Years of Employment History</span>
+                </div>
+            </div>
+            <!-- Checklist Item 3 -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-tertiary">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <div class="flex-grow text-sm">
+                    <span class="block font-semibold text-on-surface">Request for Past Employment Verification &amp; Alcohol/Drug Inquiries</span>
+                    <p class="text-xs text-on-surface-variant mt-1">Covering the past (3) years of history.</p>
+                </div>
+            </div>
+            <!-- Complex Item: Physical Exam -->
+            <div class="bg-surface-container-high p-6 rounded-xl space-y-4">
+                <div class="flex items-center gap-3">
+                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <label class="font-bold text-on-surface">Driver Physical Exam</label>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ml-8">
+                    <div class="flex flex-col">
+                        <label class="text-[10px] font-bold uppercase text-on-surface-variant">Exp Date</label>
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-sm" type="date">
+                    </div>
+                    <div class="grid grid-cols-2 gap-2">
+                        <label class="flex items-center gap-2 text-xs">
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> MVR
+                        </label>
+                        <label class="flex items-center gap-2 text-xs">
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> Doctor Cert
+                        </label>
+                        <label class="flex items-center gap-2 text-xs">
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> Eligibility
+                        </label>
+                        <label class="flex items-center gap-2 text-xs">
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> Renewed
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Valid License -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-2">
+                    <span class="font-semibold text-on-surface">Valid License Exp Date</span>
+                    <input class="bg-surface-container-low border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                </div>
+            </div>
+            <!-- Credentials -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-primary">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <div class="flex-grow">
+                    <span class="block font-semibold text-on-surface mb-2">Other Credentials</span>
+                    <div class="flex flex-wrap gap-4 text-xs font-medium uppercase text-on-surface-variant">
+                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox"> SS Card</label>
+                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox"> TWIC</label>
+                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox"> Resident Card</label>
+                    </div>
+                </div>
+            </div>
+            <!-- MVR / PSP Row -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-3">
+                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <div class="flex flex-col">
+                        <span class="text-sm font-semibold">MVR (Original) Date</span>
+                        <input class="bg-transparent border-0 border-b border-outline-variant text-xs p-1" type="date">
+                    </div>
+                </div>
+                <div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-3">
+                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <span class="text-sm font-semibold">PSP Report &amp; Release</span>
+                </div>
+            </div>
+            <!-- Drug Testing Section -->
+            <div class="bg-surface-container-high p-6 rounded-xl space-y-4">
+                <h3 class="text-xs font-bold uppercase text-on-surface-variant flex items-center gap-2">
+                    <span class="material-symbols-outlined text-sm" data-icon="science">science</span>
+                    Safety &amp; Drug Testing
+                </h3>
+                <div class="space-y-4">
+                    <div class="flex flex-col md:flex-row md:items-center gap-4">
+                        <div class="flex items-center gap-3 flex-grow">
+                            <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                            <span class="text-sm font-semibold">Pre-Employment Results</span>
+                        </div>
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs md:w-40" type="date">
+                        <label class="flex items-center gap-2 text-xs font-bold"><input class="rounded" type="checkbox"> COC</label>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="flex items-center gap-3 text-sm">
+                            <input class="w-4 h-4 rounded text-primary" type="checkbox">
+                            Previous Pre-Employment Statement
+                        </label>
+                        <label class="flex items-center gap-3 text-sm">
+                            <input class="w-4 h-4 rounded text-primary" type="checkbox">
+                            Received Copy of Policy
+                        </label>
+                        <label class="flex items-center gap-3 text-sm">
+                            <input class="w-4 h-4 rounded text-primary" type="checkbox">
+                            Consent for DOT Testing
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!-- Regulatory -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <div class="flex-grow">
+                    <span class="block font-semibold text-on-surface">Employment Eligibility Verification (I-9)</span>
+                </div>
+            </div>
+            <!-- DACH -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg flex flex-col gap-4 shadow-sm border-l-4 border-error">
+                <div class="flex items-start gap-4">
+                    <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <span class="font-semibold text-on-surface">DACH Pre-Employment &amp; General Consent</span>
+                </div>
+                <div class="ml-9 flex items-center gap-4">
+                    <span class="text-xs font-bold uppercase text-on-surface-variant">Annual Query Exp</span>
+                    <input class="bg-surface-container-low border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                </div>
+            </div>
+            <!-- Training -->
+            <div class="bg-surface-container-high p-6 rounded-xl grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="flex items-center gap-2 text-sm font-bold">
+                            <input class="rounded" type="checkbox"> HazMat Exp Date
+                        </label>
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                    </div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex flex-col gap-1">
+                        <label class="flex items-center gap-2 text-sm font-bold">
+                            <input class="rounded" type="checkbox"> H2S Training Exp Date
+                        </label>
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                    </div>
+                </div>
+            </div>
+            <!-- Final Items -->
+            <div class="bg-surface-container-lowest p-4 rounded-lg space-y-3">
+                <label class="flex items-center gap-3 text-sm font-semibold">
+                    <input class="w-5 h-5 rounded text-primary" type="checkbox">
+                    Road Test Certificate/Test
+                </label>
+                <label class="flex items-center gap-3 text-sm font-semibold">
+                    <input class="w-5 h-5 rounded text-primary" type="checkbox">
+                    Signed Acknowledgements
+                </label>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Cluster -->
+    <footer class="fixed bottom-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md flex flex-col px-6 py-4 border-t border-slate-100 shadow-[0_-4px_12px_0_rgba(0,0,0,0.05)]">
+        <div class="flex items-center justify-between gap-4 mb-4">
+            <button class="flex-1 py-3 text-sm font-bold text-on-surface-variant border-2 border-outline-variant rounded-md hover:bg-surface-container-low transition-all" onclick="window.location.href='form.html'">
+                BACK
+            </button>
+            <button class="flex-1 py-3 text-sm font-bold text-on-primary bg-primary rounded-md shadow-md hover:opacity-90 active:scale-95 transition-all">
+                NEXT
+            </button>
+        </div>
+        <div class="space-y-2">
+            <div class="flex justify-between text-[10px] font-bold text-on-surface-variant tracking-widest uppercase">
+                <span>Application Progress</span>
+                <span>65% Complete</span>
+            </div>
+            <div class="h-1.5 w-full bg-surface-container-high rounded-full overflow-hidden">
+                <div class="h-full bg-primary w-[65%] rounded-full"></div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
