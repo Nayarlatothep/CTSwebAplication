@@ -13,62 +13,20 @@
             theme: {
                 extend: {
                     colors: {
-                        "surface": "#f8f9fa",
-                        "on-tertiary": "#fcf7ff",
-                        "outline-variant": "#abb3b7",
-                        "on-secondary-fixed": "#29434e",
-                        "primary-fixed-dim": "#c3d4ff",
-                        "error-dim": "#4e0309",
-                        "inverse-surface": "#0c0f10",
-                        "on-tertiary-fixed-variant": "#504e69",
-                        "on-secondary-container": "#3c5561",
-                        "primary-fixed": "#d8e2ff",
-                        "primary-dim": "#2f518f",
-                        "tertiary-fixed-dim": "#c5c0e0",
-                        "secondary-container": "#cbe7f5",
-                        "surface-container-low": "#f1f4f6",
-                        "surface-container-highest": "#dbe4e7",
-                        "on-primary-fixed-variant": "#395a99",
-                        "tertiary-container": "#d3ceef",
-                        "on-error": "#fff7f6",
-                        "tertiary-fixed": "#d3ceef",
-                        "tertiary-dim": "#53506b",
-                        "surface-container-high": "#e3e9ec",
-                        "error-container": "#fe8983",
-                        "surface-variant": "#dbe4e7",
-                        "on-background": "#2b3437",
-                        "tertiary": "#5f5c78",
-                        "on-primary": "#f7f7ff",
-                        "secondary": "#49636f",
-                        "on-primary-fixed": "#183d7b",
-                        "secondary-fixed-dim": "#bdd9e6",
-                        "on-surface-variant": "#586064",
-                        "inverse-primary": "#99b8fe",
-                        "surface-container-lowest": "#ffffff",
-                        "on-tertiary-container": "#47445f",
-                        "on-primary-container": "#2e508e",
-                        "inverse-on-surface": "#9b9d9e",
-                        "on-secondary": "#f2faff",
-                        "on-error-container": "#752121",
-                        "primary": "#3c5d9c",
-                        "surface-container": "#eaeff1",
-                        "secondary-fixed": "#cbe7f5",
-                        "surface-dim": "#d1dce0",
-                        "secondary-dim": "#3d5762",
-                        "primary-container": "#d8e2ff",
-                        "surface-tint": "#3c5d9c",
-                        "on-secondary-fixed-variant": "#455f6b",
-                        "on-tertiary-fixed": "#34314b",
-                        "error": "#9f403d",
-                        "outline": "#737c7f",
-                        "background": "#f8f9fa",
-                        "on-surface": "#2b3437",
-                        "surface-bright": "#f8f9fa"
+                        primary: {
+                            DEFAULT: "#002F6C",
+                            light: "#1e4c8c",
+                            dark: "#001d4a",
+                        },
+                        accent: "#FBB917",
+                        surface: {
+                            DEFAULT: "#F9FBFF",
+                            dark: "#121417",
+                        },
                     },
                     fontFamily: {
-                        "headline": ["Public Sans"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
+                        headline: ["Outfit", "sans-serif"],
+                        body: ["Inter", "sans-serif"],
                     },
                     borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
                 },
@@ -90,9 +48,9 @@
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
-    <header class="bg-white/95 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
-        <div class="flex justify-between items-center w-full px-8 py-6 max-w-screen-2xl mx-auto h-20">
-            <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
+    <header class="fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md flex justify-between items-center px-6 md:px-12 h-20 border-b border-slate-100">
+        <div class="flex justify-between items-center w-full max-w-7xl mx-auto">
+            <div class="flex items-center gap-3 group cursor-pointer" onclick="window.location.href='index.html'">
                 <div class="w-10 h-10 bg-primary flex items-center justify-center rounded-xl shadow-lg shadow-primary/20">
                     <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
                 </div>
@@ -100,20 +58,18 @@
                     CTS <span class="text-primary-light opacity-80">TRANSPORT</span>
                 </h1>
             </div>
+            
             <div class="flex items-center gap-4">
                 <div class="flex flex-col items-end">
                     <span class="text-[10px] font-bold text-primary uppercase tracking-[0.2em] mb-1">Process Status</span>
                     <div class="w-32 h-1.5 bg-slate-100 rounded-full overflow-hidden">
-                        <div class="bg-[#FBB917] h-full w-[85%]" style="transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)"></div>
+                        <div class="bg-accent h-full w-[60%]" style="transition: width 1s cubic-bezier(0.175, 0.885, 0.32, 1.275)"></div>
                     </div>
                 </div>
                 <div class="w-11 h-11 rounded-full p-[2px] bg-gradient-to-tr from-[#FBB917] to-primary flex items-center justify-center shadow-lg overflow-hidden">
                     <img class="w-full h-full rounded-full object-cover border-2 border-white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_stweGhfwbXNEkclRKPiOkiFwXvmNxEFrvlcTEtBznhiBOoNR8NNNbdfrivaaxzFwAmUdkBVKqhzaJmi6Sqf1cTxUordErtuqVwjhYqlguz6y_uA03CfNX3gACgPWhLDfP5g2m4fCynFn6o5UXy-ZNAbgQquej86dcRiZlAV0TcubKPLqJy4-ikXz3_lTSXi_2EIl4JdHAbJFvR0bhs7rAmzMC3gJZxrvOS1JEjZLaGAarNo99Tyj_RQfLYUnjyCXmHPGogUTi8s"/>
                 </div>
             </div>
-        </div>
-        <div class="px-8 pb-4 max-w-screen-2xl mx-auto flex justify-between items-center">
-             <span class="text-[10px] font-bold uppercase tracking-widest text-primary px-2 py-0.5 bg-primary/5 rounded-md">85% Complete</span>
         </div>
     </header>
 
@@ -321,10 +277,10 @@
         <div class="max-w-3xl mx-auto w-full space-y-2">
             <div class="flex justify-between text-[10px] font-bold text-slate-400 tracking-widest uppercase">
                 <span>Application Progress</span>
-                <span>85% Complete</span>
+                <span>60% Complete</span>
             </div>
             <div class="h-1.5 w-full bg-slate-100 rounded-full overflow-hidden">
-                <div class="h-full bg-primary w-[85%] rounded-full shadow-[0_0_10px_rgba(30,76,140,0.3)]"></div>
+                <div class="h-full bg-primary w-[60%] rounded-full shadow-[0_0_10px_rgba(30,76,140,0.3)]"></div>
             </div>
         </div>
     </footer>
