@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Safety Performance History - CTS Transportation</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                colors: {
+                  "tertiary-container": "#d3ceef",
+                  "secondary-fixed-dim": "#bdd9e6",
+                  "surface-tint": "#3c5d9c",
+                  "surface-container-highest": "#dbe4e7",
+                  "inverse-surface": "#0c0f10",
+                  "surface-container-low": "#f1f4f6",
+                  "on-primary": "#f7f7ff",
+                  "tertiary-fixed": "#d3ceef",
+                  "on-primary-fixed": "#183d7b",
+                  "error": "#9f403d",
+                  "outline-variant": "#abb3b7",
+                  "primary-fixed-dim": "#c3d4ff",
+                  "on-primary-container": "#2e508e",
+                  "secondary-container": "#cbe7f5",
+                  "secondary-dim": "#3d5762",
+                  "primary-container": "#d8e2ff",
+                  "on-error": "#fff7f6",
+                  "on-secondary": "#f2faff",
+                  "surface-container-lowest": "#ffffff",
+                  "on-surface": "#2b3437",
+                  "on-secondary-fixed": "#29434e",
+                  "on-tertiary-fixed-variant": "#504e69",
+                  "on-tertiary-fixed": "#34314b",
+                  "secondary": "#49636f",
+                  "background": "#f8f9fa",
+                  "on-secondary-container": "#3c5561",
+                  "on-tertiary": "#fcf7ff",
+                  "error-dim": "#4e0309",
+                  "on-tertiary-container": "#47445f",
+                  "inverse-primary": "#99b8fe",
+                  "tertiary-dim": "#53506b",
+                  "secondary-fixed": "#cbe7f5",
+                  "on-surface-variant": "#586064",
+                  "inverse-on-surface": "#9b9d9e",
+                  "surface-container-high": "#e3e9ec",
+                  "on-secondary-fixed-variant": "#455f6b",
+                  "surface-bright": "#f8f9fa",
+                  "tertiary": "#5f5c78",
+                  "primary-dim": "#2f518f",
+                  "surface-container": "#eaeff1",
+                  "primary-fixed": "#d8e2ff",
+                  "outline": "#737c7f",
+                  "on-primary-fixed-variant": "#395a99",
+                  "surface": "#f8f9fa",
+                  "primary": "#3c5d9c",
+                  "error-container": "#fe8983",
+                  "on-error-container": "#752121",
+                  "surface-variant": "#dbe4e7",
+                  "tertiary-fixed-dim": "#c5c0e0",
+                  "surface-dim": "#d1dce0",
+                  "on-background": "#2b3437"
+                },
+                fontFamily: {
+                  "headline": ["Public Sans"],
+                  "body": ["Inter"],
+                  "label": ["Inter"]
+                },
+                borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+              },
+            },
+          }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Public Sans', sans-serif; }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        body {
+          min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+    <!-- TopAppBar -->
+    <header class="bg-slate-50 dark:bg-slate-900 shadow-sm dark:shadow-none flex justify-between items-center px-6 py-4 w-full sticky top-0 z-50">
+        <div class="flex items-center gap-4 cursor-pointer" onclick="window.location.href='index.html'">
+            <div class="w-10 h-10 bg-[#3c5d9c] flex items-center justify-center rounded-xl shadow-lg">
+                <span class="material-symbols-outlined text-white text-2xl" style="font-variation-settings: 'FILL' 1;">local_shipping</span>
+            </div>
+            <h1 class="text-xl font-extrabold text-[#3c5d9c] dark:text-white uppercase tracking-wider">
+                CTS <span class="opacity-70 font-bold">TRANSPORT</span>
+            </h1>
+        </div>
+        <div class="flex items-center gap-4">
+            <span class="font-['Public_Sans'] font-bold text-lg tracking-tight text-[#3c5d9c] dark:text-[#d8e2ff] hidden md:block">SAFETY PERFORMANCE HISTORY</span>
+            <div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center text-on-primary-container font-bold border-2 border-primary">
+                DP
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-5xl mx-auto w-full px-6 py-12 space-y-12 pb-32">
+        <!-- Header Section -->
+        <section class="space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="space-y-2">
+                    <span class="text-primary font-bold tracking-widest uppercase text-xs">Section III-B</span>
+                    <h2 class="text-4xl font-extrabold text-on-surface tracking-tight leading-tight">Safety Performance<br>History</h2>
+                </div>
+                <div class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-bold text-sm">
+                    Status: 95% Complete
+                </div>
+            </div>
+            <!-- Initial Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Applicant Name</label>
+                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" type="text" value="JOHNATHAN D. SMITH"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">SSN</label>
+                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" placeholder="XXX-XX-XXXX" type="text"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Employer</label>
+                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" type="text" value="CTS TRANSPORTATION"/>
+                </div>
+            </div>
+        </section>
+
+        <!-- Subtitle Callout -->
+        <div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-primary">
+            <h3 class="text-sm font-bold uppercase tracking-widest text-primary">To be completed by: Previous Employer</h3>
+            <p class="text-sm text-on-surface-variant mt-1">Pursuant to Federal Motor Carrier Safety Regulations §391.23</p>
+        </div>
+
+        <!-- Section 1: Drug & Alcohol -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-outline-variant flex-grow"></div>
+                <h3 class="text-lg font-bold text-on-surface shrink-0">I. DRUG AND ALCOHOL HISTORY</h3>
+                <div class="h-px bg-outline-variant flex-grow"></div>
+            </div>
+            <div class="space-y-4 max-w-3xl">
+                <label class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant">
+                    <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline rounded-md" name="dot_subject" type="radio"/>
+                    <span class="text-sm text-on-surface">Driver <strong>WAS NOT</strong> subject to DOT testing requirements while employed by this employer.</span>
+                </label>
+                <label class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant">
+                    <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline rounded-md" name="dot_subject" type="radio"/>
+                    <span class="text-sm text-on-surface">Driver <strong>WAS</strong> subject to DOT testing requirements from <input class="mx-2 py-0 border-0 border-b border-outline-variant bg-transparent w-24 text-center focus:ring-0" placeholder="MM/DD/YY" type="text"/> to <input class="mx-2 py-0 border-0 border-b border-outline-variant bg-transparent w-24 text-center focus:ring-0" placeholder="MM/DD/YY" type="text"/>.</span>
+                </label>
+            </div>
+            <!-- Questionnaire Bento Grid -->
+            <div class="grid grid-cols-1 gap-4">
+                <div class="space-y-4">
+                    <p class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Historical Questionnaire (Past 3 Years)</p>
+                    <div class="space-y-px">
+                        <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-t-xl border-b border-surface-container">
+                            <span class="text-sm font-medium max-w-2xl">1. Has this person had an alcohol test with a result of 0.04 or higher alcohol concentration?</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q1" type="radio"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q1" type="radio"/> NO</label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
+                            <span class="text-sm font-medium max-w-2xl">2. Has this person tested positive or adulterated or substituted a test specimen for controlled substances?</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q2" type="radio"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q2" type="radio"/> NO</label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
+                            <span class="text-sm font-medium max-w-2xl">3. Has this person refused to submit to a post-accident, random, reasonable suspicion, or follow-up drug or alcohol test?</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q3" type="radio"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q3" type="radio"/> NO</label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
+                            <span class="text-sm font-medium max-w-2xl">4. Has this person committed other violations of Subpart B of Part 382, or Part 40?</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q4" type="radio"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q4" type="radio"/> NO</label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
+                            <span class="text-sm font-medium max-w-2xl">5. If this person has violated a DOT drug and alcohol regulation, did this person complete a SAP-prescribed rehabilitation program?</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q5" type="radio"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q5" type="radio"/> NO</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q5" type="radio"/> N/A</label>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-b-xl">
+                            <span class="text-sm font-medium max-w-2xl">6. For a driver who successfully completed a SAP's rehabilitation referral, has this person had any subsequent drug or alcohol violations?</span>
+                            <div class="flex gap-4">
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q6" type="radio"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q6" type="radio"/> NO</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section II: SAP Information -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-outline-variant flex-grow"></div>
+                <h3 class="text-lg font-bold text-on-surface shrink-0">II. SAP PROFESSIONAL INFORMATION</h3>
+                <div class="h-px bg-outline-variant flex-grow"></div>
+            </div>
+            <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/20 space-y-6 shadow-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">SAP Name</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Phone Number</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" placeholder="(000) 000-0000" type="tel"/>
+                    </div>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Full Address</label>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" placeholder="Street Address" type="text"/>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">City</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">State</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">ZIP Code</label>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section III: Affirmation -->
+        <section class="space-y-8">
+            <div class="flex items-center gap-4">
+                <div class="h-px bg-outline-variant flex-grow"></div>
+                <h3 class="text-lg font-bold text-on-surface shrink-0">III. AFFIRMATION</h3>
+                <div class="h-px bg-outline-variant flex-grow"></div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Completed By (Name)</label>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Title</label>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Company Name</label>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Date</label>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="date"/>
+                </div>
+                <div class="md:col-span-2 p-6 bg-surface-container-high rounded-xl border-2 border-dashed border-outline-variant text-center">
+                    <span class="text-sm font-bold text-on-surface-variant uppercase tracking-widest block mb-4">Digital Signature Pad</span>
+                    <div class="h-24 flex items-center justify-center italic text-outline">Click to sign digitally</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transmission Footer -->
+        <footer class="bg-white border-t border-surface-container-high p-8 rounded-t-3xl shadow-lg space-y-6">
+            <h4 class="text-[11px] font-bold uppercase tracking-[0.2em] text-on-surface-variant">Form Transmission Method</h4>
+            <div class="flex flex-wrap gap-6">
+                <label class="flex items-center gap-2 text-sm"><input class="rounded text-primary" type="checkbox"/> Faxed</label>
+                <label class="flex items-center gap-2 text-sm"><input class="rounded text-primary" type="checkbox"/> Mailed</label>
+                <label class="flex items-center gap-2 text-sm"><input class="rounded text-primary" type="checkbox"/> Emailed</label>
+                <label class="flex items-center gap-2 text-sm"><input class="rounded text-primary" type="checkbox"/> Other</label>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-4 border-t border-surface-container">
+                <div class="space-y-1">
+                    <label class="block text-[10px] font-bold uppercase text-on-surface-variant">Transmitted By</label>
+                    <input class="w-full bg-transparent border-0 border-b border-surface-container focus:border-primary focus:ring-0 text-xs py-1" type="text"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[10px] font-bold uppercase text-on-surface-variant">Date</label>
+                    <input class="w-full bg-transparent border-0 border-b border-surface-container focus:border-primary focus:ring-0 text-xs py-1" type="date"/>
+                </div>
+                <div class="space-y-1">
+                    <label class="block text-[10px] font-bold uppercase text-on-surface-variant">Time</label>
+                    <input class="w-full bg-transparent border-0 border-b border-surface-container focus:border-primary focus:ring-0 text-xs py-1" type="time"/>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Action Buttons & Progress -->
+        <div class="flex flex-col gap-6 py-12">
+            <div class="w-full bg-surface-container h-3 rounded-full overflow-hidden">
+                <div class="bg-primary h-full w-[95%] transition-all duration-500"></div>
+            </div>
+            <div class="flex justify-between items-center">
+                <button onclick="window.location.href='employment-history.html'" class="px-8 py-3 rounded-md font-bold text-sm border-2 border-primary text-primary hover:bg-primary-container transition-all active:scale-95">BACK</button>
+                <button class="px-12 py-3 rounded-md font-bold text-sm bg-primary text-on-primary shadow-lg hover:shadow-primary/20 hover:bg-primary-dim transition-all active:scale-95 uppercase">FINISH</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- BottomNavBar (Hidden on desktop) -->
+    <nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-3 pb-safe bg-white dark:bg-slate-950 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] md:hidden">
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#3c5d9c] transition-colors active:opacity-80" href="index.html">
+            <span class="material-symbols-outlined">person</span>
+            <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-tighter mt-1">Personal</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#3c5d9c] transition-colors active:opacity-80" href="#">
+            <span class="material-symbols-outlined">badge</span>
+            <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-tighter mt-1">License</span>
+        </a>
+        <a class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-4 py-2 hover:text-[#3c5d9c] transition-colors active:opacity-80" href="employment-history.html">
+            <span class="material-symbols-outlined">history</span>
+            <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-tighter mt-1">History</span>
+        </a>
+        <a class="flex flex-col items-center justify-center bg-[#d8e2ff] dark:bg-[#3c5d9c]/20 text-[#002f6c] dark:text-[#d8e2ff] rounded-xl px-4 py-2 active:opacity-80" href="#">
+            <span class="material-symbols-outlined">fact_check</span>
+            <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-tighter mt-1">Review</span>
+        </a>
+    </nav>
+</body>
+</html>
