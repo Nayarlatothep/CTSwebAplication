@@ -113,12 +113,12 @@
                 <div class="space-y-6">
                     <div class="space-y-2">
                         <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest ml-1" for="name">Legal Name of Individual/Entity</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold form-input-focus placeholder:text-slate-300 transition-all" id="name" placeholder="As shown on your income tax return" type="text">
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold form-input-focus placeholder:text-slate-300 transition-all" id="name" data-field="legal_name" placeholder="As shown on your income tax return" type="text">
                     </div>
                     
                     <div class="space-y-2">
                         <label class="block text-xs font-bold text-slate-400 uppercase tracking-widest ml-1" for="business-name">Business Name (Optional)</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold form-input-focus placeholder:text-slate-300 transition-all" id="business-name" placeholder="DBA or Disregarded Entity Name" type="text">
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold form-input-focus placeholder:text-slate-300 transition-all" id="business-name" data-field="business_name" placeholder="DBA or Disregarded Entity Name" type="text">
                     </div>
                 </div>
             </div>
@@ -135,29 +135,29 @@
 
                 <div class="grid gap-4">
                     <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
-                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox" data-field="tax_individual">
                         <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">Individual / Sole Proprietor</span>
                     </label>
                     <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
-                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox" data-field="tax_c_corp">
                         <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">C Corporation</span>
                     </label>
                     <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
-                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox" data-field="tax_s_corp">
                         <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">S Corporation</span>
                     </label>
                     <label class="flex items-center gap-4 p-5 bg-slate-50 rounded-2xl cursor-pointer hover:bg-slate-100 transition-all group">
-                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                        <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox" data-field="tax_partnership">
                         <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">Partnership / LP</span>
                     </label>
                     
                     <div class="p-6 bg-slate-50 rounded-3xl space-y-4 border border-dashed border-slate-200">
                         <label class="flex items-center gap-4 cursor-pointer group">
-                            <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox">
+                            <input class="w-6 h-6 rounded-lg border-slate-200 text-primary focus:ring-primary/20 transition-all" type="checkbox" data-field="tax_llc">
                             <span class="text-sm font-bold text-slate-600 group-hover:text-primary transition-colors">Limited Liability Company (LLC)</span>
                         </label>
                         <div class="pl-10">
-                            <input class="w-full bg-white px-4 py-3 text-xs font-bold rounded-xl border border-slate-100 focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-slate-300" placeholder="Enter Classification (C=C corp, S=S corp, P=Partnership)" type="text">
+                            <input class="w-full bg-white px-4 py-3 text-xs font-bold rounded-xl border border-slate-100 focus:ring-2 focus:ring-primary/10 transition-all placeholder:text-slate-300" placeholder="Enter Classification (C=C corp, S=S corp, P=Partnership)" type="text" data-field="llc_classification">
                         </div>
                     </div>
                 </div>
@@ -170,11 +170,11 @@
                     <div class="space-y-4">
                         <div class="space-y-1">
                             <label class="text-[10px] font-black text-primary/60 uppercase ml-1" for="exempt-payee">Payee Code</label>
-                            <input class="w-full bg-white border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="exempt-payee" placeholder="Code" type="text" maxlength="2">
+                            <input class="w-full bg-white border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="exempt-payee" data-field="payee_code" placeholder="Code" type="text" maxlength="2">
                         </div>
                         <div class="space-y-1">
                             <label class="text-[10px] font-black text-primary/60 uppercase ml-1" for="fatca">FATCA Exemption</label>
-                            <input class="w-full bg-white border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="fatca" placeholder="Exemption Code" type="text" maxlength="2">
+                            <input class="w-full bg-white border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="fatca" data-field="fatca_code" placeholder="Exemption Code" type="text" maxlength="2">
                         </div>
                     </div>
                 </div>
@@ -182,8 +182,8 @@
                 <div class="bg-white rounded-[2.5rem] p-8 floating-card border border-slate-100 space-y-6">
                     <h3 class="text-xs font-black text-slate-400 uppercase tracking-[0.2em]">04. Contact</h3>
                     <div class="space-y-4">
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="address" placeholder="Address, Apt/Suite" type="text">
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="city-state-zip" placeholder="City, State, Zip" type="text">
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="address" data-field="address" placeholder="Address, Apt/Suite" type="text">
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-xl p-3 text-sm font-bold" id="city-state-zip" data-field="city_state_zip" placeholder="City, State, Zip" type="text">
                     </div>
                 </div>
             </div>
@@ -232,5 +232,6 @@
         </div>
     </nav>
 
+    <script src="storage-handler.js"></script>
 </body>
 </html>

@@ -89,24 +89,24 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="flex flex-col gap-1">
                     <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Driver's Name</label>
-                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="Full Legal Name" type="text">
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="Full Legal Name" type="text" data-field="driver_name">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">SSN</label>
-                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="XXX-XX-XXXX" type="password">
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="XXX-XX-XXXX" type="password" data-field="driver_ssn">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Date of Birth</label>
-                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" type="date">
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" type="date" data-field="driver_dob">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">DL#</label>
-                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="License Number" type="text">
+                    <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="License Number" type="text" data-field="dl_number">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div class="flex flex-col gap-1">
                         <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">State</label>
-                        <select class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2">
+                        <select class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" data-field="dl_state">
                             <option>TX</option>
                             <option>OK</option>
                             <option>LA</option>
@@ -114,11 +114,11 @@
                     </div>
                     <div class="flex flex-col gap-1">
                         <label class="text-sm font-semibold text-on-surface-variant uppercase tracking-wider">Class: [ ]cdl</label>
-                        <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="A" type="text">
+                        <input class="bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 transition-all text-on-surface p-2" placeholder="A" type="text" data-field="dl_class">
                     </div>
                 </div>
                 <div class="flex items-center gap-3 pt-6">
-                    <input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary" id="cdl_status" type="checkbox">
+                    <input class="w-6 h-6 rounded border-outline-variant text-primary focus:ring-primary" id="cdl_status" type="checkbox" data-field="cdl_endorsement">
                     <label class="font-bold text-on-surface select-none" for="cdl_status">CDL Endorsement</label>
                 </div>
             </div>
@@ -131,21 +131,21 @@
             </h2>
             <!-- Checklist Item 1 -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-tertiary">
-                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_completed_app">
                 <div class="flex-grow">
                     <span class="block font-semibold text-on-surface">Completed and Signed Application</span>
                 </div>
             </div>
             <!-- Checklist Item 2 -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-tertiary">
-                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_10yr_history">
                 <div class="flex-grow">
                     <span class="block font-semibold text-on-surface">(10) Years of Employment History</span>
                 </div>
             </div>
             <!-- Checklist Item 3 -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-tertiary">
-                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_employment_verify">
                 <div class="flex-grow text-sm">
                     <span class="block font-semibold text-on-surface">Request for Past Employment Verification &amp; Alcohol/Drug Inquiries</span>
                     <p class="text-xs text-on-surface-variant mt-1">Covering the past (3) years of history.</p>
@@ -154,61 +154,61 @@
             <!-- Complex Item: Physical Exam -->
             <div class="bg-surface-container-high p-6 rounded-xl space-y-4">
                 <div class="flex items-center gap-3">
-                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_physical_exam">
                     <label class="font-bold text-on-surface">Driver Physical Exam</label>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 ml-8">
                     <div class="flex flex-col">
                         <label class="text-[10px] font-bold uppercase text-on-surface-variant">Exp Date</label>
-                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-sm" type="date">
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-sm" type="date" data-field="physical_exp_date">
                     </div>
                     <div class="grid grid-cols-2 gap-2">
                         <label class="flex items-center gap-2 text-xs">
-                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> MVR
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox" data-field="chk_mvr"> MVR
                         </label>
                         <label class="flex items-center gap-2 text-xs">
-                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> Doctor Cert
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox" data-field="chk_doctor_cert"> Doctor Cert
                         </label>
                         <label class="flex items-center gap-2 text-xs">
-                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> Eligibility
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox" data-field="chk_eligibility"> Eligibility
                         </label>
                         <label class="flex items-center gap-2 text-xs">
-                            <input class="w-3 h-3 rounded text-primary" type="checkbox"> Renewed
+                            <input class="w-3 h-3 rounded text-primary" type="checkbox" data-field="chk_renewed"> Renewed
                         </label>
                     </div>
                 </div>
             </div>
             <!-- Valid License -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm">
-                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_valid_license">
                 <div class="flex-grow grid grid-cols-1 md:grid-cols-2 gap-2">
                     <span class="font-semibold text-on-surface">Valid License Exp Date</span>
-                    <input class="bg-surface-container-low border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                    <input class="bg-surface-container-low border-0 border-b border-outline-variant p-1 text-xs" type="date" data-field="license_exp_date">
                 </div>
             </div>
             <!-- Credentials -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm border-l-4 border-primary">
-                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_other_creds">
                 <div class="flex-grow">
                     <span class="block font-semibold text-on-surface mb-2">Other Credentials</span>
                     <div class="flex flex-wrap gap-4 text-xs font-medium uppercase text-on-surface-variant">
-                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox"> SS Card</label>
-                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox"> TWIC</label>
-                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox"> Resident Card</label>
+                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox" data-field="chk_ss_card"> SS Card</label>
+                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox" data-field="chk_twic"> TWIC</label>
+                        <label class="flex items-center gap-1"><input class="rounded" type="checkbox" data-field="chk_resident_card"> Resident Card</label>
                     </div>
                 </div>
             </div>
             <!-- MVR / PSP Row -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-3">
-                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_mvr_original">
                     <div class="flex flex-col">
                         <span class="text-sm font-semibold">MVR (Original) Date</span>
-                        <input class="bg-transparent border-0 border-b border-outline-variant text-xs p-1" type="date">
+                        <input class="bg-transparent border-0 border-b border-outline-variant text-xs p-1" type="date" data-field="mvr_original_date">
                     </div>
                 </div>
                 <div class="bg-surface-container-lowest p-4 rounded-lg flex items-center gap-3">
-                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_psp_report">
                     <span class="text-sm font-semibold">PSP Report &amp; Release</span>
                 </div>
             </div>
@@ -221,23 +221,23 @@
                 <div class="space-y-4">
                     <div class="flex flex-col md:flex-row md:items-center gap-4">
                         <div class="flex items-center gap-3 flex-grow">
-                            <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                            <input class="w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_pre_employment">
                             <span class="text-sm font-semibold">Pre-Employment Results</span>
                         </div>
-                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs md:w-40" type="date">
-                        <label class="flex items-center gap-2 text-xs font-bold"><input class="rounded" type="checkbox"> COC</label>
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs md:w-40" type="date" data-field="pre_employment_date">
+                        <label class="flex items-center gap-2 text-xs font-bold"><input class="rounded" type="checkbox" data-field="chk_coc"> COC</label>
                     </div>
                     <div class="space-y-2">
                         <label class="flex items-center gap-3 text-sm">
-                            <input class="w-4 h-4 rounded text-primary" type="checkbox">
+                            <input class="w-4 h-4 rounded text-primary" type="checkbox" data-field="chk_prev_pre_emp">
                             Previous Pre-Employment Statement
                         </label>
                         <label class="flex items-center gap-3 text-sm">
-                            <input class="w-4 h-4 rounded text-primary" type="checkbox">
+                            <input class="w-4 h-4 rounded text-primary" type="checkbox" data-field="chk_policy_copy">
                             Received Copy of Policy
                         </label>
                         <label class="flex items-center gap-3 text-sm">
-                            <input class="w-4 h-4 rounded text-primary" type="checkbox">
+                            <input class="w-4 h-4 rounded text-primary" type="checkbox" data-field="chk_dot_consent">
                             Consent for DOT Testing
                         </label>
                     </div>
@@ -245,7 +245,7 @@
             </div>
             <!-- Regulatory -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex items-start gap-4 shadow-sm">
-                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_i9">
                 <div class="flex-grow">
                     <span class="block font-semibold text-on-surface">Employment Eligibility Verification (I-9)</span>
                 </div>
@@ -253,12 +253,12 @@
             <!-- DACH -->
             <div class="bg-surface-container-lowest p-4 rounded-lg flex flex-col gap-4 shadow-sm border-l-4 border-error">
                 <div class="flex items-start gap-4">
-                    <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox">
+                    <input class="mt-1 w-5 h-5 rounded border-outline-variant text-primary" type="checkbox" data-field="chk_dach">
                     <span class="font-semibold text-on-surface">DACH Pre-Employment &amp; General Consent</span>
                 </div>
                 <div class="ml-9 flex items-center gap-4">
                     <span class="text-xs font-bold uppercase text-on-surface-variant">Annual Query Exp</span>
-                    <input class="bg-surface-container-low border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                    <input class="bg-surface-container-low border-0 border-b border-outline-variant p-1 text-xs" type="date" data-field="dach_query_exp">
                 </div>
             </div>
             <!-- Training -->
@@ -266,28 +266,28 @@
                 <div class="space-y-4">
                     <div class="flex flex-col gap-1">
                         <label class="flex items-center gap-2 text-sm font-bold">
-                            <input class="rounded" type="checkbox"> HazMat Exp Date
+                            <input class="rounded" type="checkbox" data-field="chk_hazmat"> HazMat Exp Date
                         </label>
-                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs" type="date" data-field="hazmat_exp_date">
                     </div>
                 </div>
                 <div class="space-y-4">
                     <div class="flex flex-col gap-1">
                         <label class="flex items-center gap-2 text-sm font-bold">
-                            <input class="rounded" type="checkbox"> H2S Training Exp Date
+                            <input class="rounded" type="checkbox" data-field="chk_h2s"> H2S Training Exp Date
                         </label>
-                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs" type="date">
+                        <input class="bg-white border-0 border-b border-outline-variant p-1 text-xs" type="date" data-field="h2s_exp_date">
                     </div>
                 </div>
             </div>
             <!-- Final Items -->
             <div class="bg-surface-container-lowest p-4 rounded-lg space-y-3">
                 <label class="flex items-center gap-3 text-sm font-semibold">
-                    <input class="w-5 h-5 rounded text-primary" type="checkbox">
+                    <input class="w-5 h-5 rounded text-primary" type="checkbox" data-field="chk_road_test">
                     Road Test Certificate/Test
                 </label>
                 <label class="flex items-center gap-3 text-sm font-semibold">
-                    <input class="w-5 h-5 rounded text-primary" type="checkbox">
+                    <input class="w-5 h-5 rounded text-primary" type="checkbox" data-field="chk_signed_ack">
                     Signed Acknowledgements
                 </label>
             </div>
@@ -314,5 +314,6 @@
             </div>
         </div>
     </footer>
+    <script src="storage-handler.js"></script>
 </body>
 </html>

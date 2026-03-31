@@ -112,7 +112,7 @@
 
                 <div class="pt-8 border-t border-slate-100">
                     <label class="flex items-center gap-4 cursor-pointer p-6 bg-primary/5 rounded-3xl border border-primary/10 hover:bg-primary/10 transition-colors group">
-                        <input class="w-6 h-6 text-primary border-slate-200 focus:ring-primary rounded-lg transition-all group-hover:scale-110" type="checkbox"/>
+                        <input class="w-6 h-6 text-primary border-slate-200 focus:ring-primary rounded-lg transition-all group-hover:scale-110" type="checkbox" data-field="auth_terms_accepted"/>
                         <span class="text-base font-bold text-primary uppercase tracking-wide">I accept and agree to these terms.</span>
                     </label>
                 </div>
@@ -126,7 +126,7 @@
                 <div class="grid grid-cols-1 gap-8">
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Class of Equipment</label>
-                        <select class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all">
+                        <select class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" data-field="equipment_class">
                             <option>Straight Truck</option>
                             <option>Tractor and Semi-Trailer</option>
                             <option>Tractor - Two Trailers</option>
@@ -136,11 +136,11 @@
                     <div class="grid grid-cols-2 gap-6">
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Years of Exp.</label>
-                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="0" type="number"/>
+                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="0" type="number" data-field="years_exp"/>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Total Miles</label>
-                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Approx. total" type="text"/>
+                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Approx. total" type="text" data-field="total_miles"/>
                         </div>
                     </div>
                 </div>
@@ -157,21 +157,21 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Event Date</label>
-                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" type="date"/>
+                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" type="date" data-field="accident_date"/>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Nature of Accident</label>
-                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="e.g. Head-on" type="text"/>
+                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="e.g. Head-on" type="text" data-field="accident_nature"/>
                         </div>
                     </div>
                     <div class="grid grid-cols-2 gap-8">
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Fatalities</label>
-                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold" type="number" value="0"/>
+                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold" type="number" value="0" data-field="fatalities"/>
                         </div>
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Injuries</label>
-                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold" type="number" value="0"/>
+                            <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold" type="number" value="0" data-field="injuries"/>
                         </div>
                     </div>
                 </div>
@@ -212,29 +212,29 @@
                     <p class="text-on-surface font-bold text-lg leading-tight">Have you ever been denied a license, permit or privilege to operate a motor vehicle?</p>
                     <div class="flex gap-8">
                         <label class="flex items-center gap-3 cursor-pointer group">
-                            <input class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="denied" type="radio"/>
+                            <input class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="denied" type="radio" data-field="denied_yes" value="YES"/>
                             <span class="font-black text-sm group-hover:text-primary transition-colors">YES</span>
                         </label>
                         <label class="flex items-center gap-3 cursor-pointer group">
-                            <input checked="" class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="denied" type="radio"/>
+                            <input checked="" class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="denied" type="radio" data-field="denied_no" value="NO"/>
                             <span class="font-black text-sm group-hover:text-primary transition-colors">NO</span>
                         </label>
                     </div>
-                    <textarea class="w-full bg-slate-50 border-transparent rounded-2xl p-5 text-sm font-medium focus:ring-4 focus:ring-primary/5 min-h-[120px]" placeholder="If yes, please explain details..."></textarea>
+                    <textarea class="w-full bg-slate-50 border-transparent rounded-2xl p-5 text-sm font-medium focus:ring-4 focus:ring-primary/5 min-h-[120px]" placeholder="If yes, please explain details..." data-field="denied_details"></textarea>
                 </div>
                 <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 space-y-6 shadow-sm">
                     <p class="text-on-surface font-bold text-lg leading-tight">Has any license, permit or privilege ever been suspended or revoked?</p>
                     <div class="flex gap-8">
                         <label class="flex items-center gap-3 cursor-pointer group">
-                            <input class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="revoked" type="radio"/>
+                            <input class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="revoked" type="radio" data-field="revoked_yes" value="YES"/>
                             <span class="font-black text-sm group-hover:text-primary transition-colors">YES</span>
                         </label>
                         <label class="flex items-center gap-3 cursor-pointer group">
-                            <input checked="" class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="revoked" type="radio"/>
+                            <input checked="" class="w-6 h-6 text-primary border-slate-300 focus:ring-primary rounded-full" name="revoked" type="radio" data-field="revoked_no" value="NO"/>
                             <span class="font-black text-sm group-hover:text-primary transition-colors">NO</span>
                         </label>
                     </div>
-                    <textarea class="w-full bg-slate-50 border-transparent rounded-2xl p-5 text-sm font-medium focus:ring-4 focus:ring-primary/5 min-h-[120px]" placeholder="If yes, please explain details..."></textarea>
+                    <textarea class="w-full bg-slate-50 border-transparent rounded-2xl p-5 text-sm font-medium focus:ring-4 focus:ring-primary/5 min-h-[120px]" placeholder="If yes, please explain details..." data-field="revoked_details"></textarea>
                 </div>
             </div>
         </section>
@@ -244,16 +244,16 @@
             <div class="bg-white p-8 rounded-[2.5rem] border border-slate-100 space-y-8 shadow-sm">
                 <div class="space-y-2">
                     <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Full Legal Name</label>
-                    <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="First and Last Name" type="text"/>
+                    <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="First and Last Name" type="text" data-field="emergency_name"/>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Phone Number</label>
-                        <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="(555) 000-0000" type="tel"/>
+                        <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="(555) 000-0000" type="tel" data-field="emergency_phone"/>
                     </div>
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase text-slate-400 tracking-widest ml-1">Relationship</label>
-                        <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="e.g. Spouse" type="text"/>
+                        <input class="w-full bg-slate-50 border-transparent rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5" placeholder="e.g. Spouse" type="text" data-field="emergency_relationship"/>
                     </div>
                 </div>
             </div>
@@ -302,5 +302,6 @@
             </div>
         </div>
     </nav>
+    <script src="storage-handler.js"></script>
 </body>
 </html>

@@ -91,50 +91,50 @@
                 <!-- Company Name -->
                 <div class="space-y-2">
                     <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Name of Company</label>
-                    <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="e.g. Continental Logistics" type="text"/>
+                    <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="e.g. Continental Logistics" type="text" data-field="emp1_company"/>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Contact Person -->
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Contact Person</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Full Name" type="text"/>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Full Name" type="text" data-field="emp1_contact"/>
                     </div>
                     <!-- Phone -->
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="(555) 000-0000" type="tel"/>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="(555) 000-0000" type="tel" data-field="emp1_phone"/>
                     </div>
                 </div>
                 <!-- Address Cluster -->
                 <div class="space-y-2">
                     <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Location Details</label>
                     <div class="grid grid-cols-1 sm:grid-cols-6 gap-3">
-                        <input class="sm:col-span-3 bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="City" type="text"/>
-                        <input class="sm:col-span-1 bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="ST" type="text"/>
-                        <input class="sm:col-span-2 bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Zip" type="text"/>
+                        <input class="sm:col-span-3 bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="City" type="text" data-field="emp1_city"/>
+                        <input class="sm:col-span-1 bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="ST" type="text" data-field="emp1_state"/>
+                        <input class="sm:col-span-2 bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Zip" type="text" data-field="emp1_zip"/>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Dates -->
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">From Date</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" type="date"/>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" type="date" data-field="emp1_from"/>
                     </div>
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">To Date</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" type="date"/>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" type="date" data-field="emp1_to"/>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <!-- Position -->
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Position Held</label>
-                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Job Title" type="text"/>
+                        <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Job Title" type="text" data-field="emp1_position"/>
                     </div>
                     <!-- Trailer -->
                     <div class="space-y-2">
                         <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Type of Trailer</label>
-                        <select class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all appearance-none">
+                        <select class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all appearance-none" data-field="emp1_trailer">
                             <option>Dry Van</option>
                             <option>Flatbed</option>
                             <option>Reefer</option>
@@ -145,19 +145,19 @@
                 <!-- Reason for Leaving -->
                 <div class="space-y-2">
                     <label class="block text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Reason for Leaving</label>
-                    <textarea class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Brief explanation..." rows="2"></textarea>
+                    <textarea class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all" placeholder="Brief explanation..." rows="2" data-field="emp1_reason"></textarea>
                 </div>
                 <!-- Compliance Checkboxes -->
                 <div class="bg-primary/5 rounded-[2rem] p-8 space-y-6 border border-primary/10">
                     <label class="flex items-start gap-4 cursor-pointer group">
-                        <input class="mt-1 w-6 h-6 rounded-lg border-primary/20 text-primary focus:ring-primary/30 bg-white" type="checkbox"/>
+                        <input class="mt-1 w-6 h-6 rounded-lg border-primary/20 text-primary focus:ring-primary/30 bg-white" type="checkbox" data-field="emp1_fmcsr"/>
                         <div class="flex flex-col">
                             <span class="text-sm font-black text-primary uppercase tracking-wide">Subject to FMCSRs</span>
                             <span class="text-xs text-slate-500 font-medium">Were you subject to Federal Motor Carrier Safety Regulations?</span>
                         </div>
                     </label>
                     <label class="flex items-start gap-4 cursor-pointer group">
-                        <input class="mt-1 w-6 h-6 rounded-lg border-primary/20 text-primary focus:ring-primary/30 bg-white" type="checkbox"/>
+                        <input class="mt-1 w-6 h-6 rounded-lg border-primary/20 text-primary focus:ring-primary/30 bg-white" type="checkbox" data-field="emp1_safety_sensitive"/>
                         <div class="flex flex-col">
                             <span class="text-sm font-black text-primary uppercase tracking-wide">Safety-Sensitive Function</span>
                             <span class="text-xs text-slate-500 font-medium">Was this position a safety-sensitive function subject to DOT drug/alcohol testing?</span>
@@ -214,5 +214,6 @@
             </div>
         </div>
     </nav>
+    <script src="storage-handler.js"></script>
 </body>
 </html>

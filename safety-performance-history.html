@@ -93,15 +93,15 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Applicant Name</label>
-                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" type="text" value="JOHNATHAN D. SMITH"/>
+                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" type="text" value="JOHNATHAN D. SMITH" data-field="safety_applicant"/>
                 </div>
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">SSN</label>
-                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" placeholder="XXX-XX-XXXX" type="text"/>
+                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" placeholder="XXX-XX-XXXX" type="text" data-field="safety_ssn"/>
                 </div>
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Employer</label>
-                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" type="text" value="CTS TRANSPORTATION"/>
+                    <input class="w-full bg-surface-container-lowest border-0 border-b-2 border-outline-variant focus:border-primary focus:ring-0 text-sm font-medium py-2" type="text" value="CTS TRANSPORTATION" data-field="safety_employer"/>
                 </div>
             </div>
         </section>
@@ -121,11 +121,11 @@
             </div>
             <div class="space-y-4 max-w-3xl">
                 <label class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant">
-                    <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline rounded-md" name="dot_subject" type="radio"/>
+                    <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline rounded-md" name="dot_subject" type="radio" data-field="dot_not_subject"/>
                     <span class="text-sm text-on-surface">Driver <strong>WAS NOT</strong> subject to DOT testing requirements while employed by this employer.</span>
                 </label>
                 <label class="flex items-start gap-4 p-4 rounded-xl hover:bg-surface-container-low transition-colors cursor-pointer border border-transparent hover:border-outline-variant">
-                    <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline rounded-md" name="dot_subject" type="radio"/>
+                    <input class="mt-1 w-5 h-5 text-primary focus:ring-primary border-outline rounded-md" name="dot_subject" type="radio" data-field="dot_was_subject"/>
                     <span class="text-sm text-on-surface">Driver <strong>WAS</strong> subject to DOT testing requirements from <input class="mx-2 py-0 border-0 border-b border-outline-variant bg-transparent w-24 text-center focus:ring-0" placeholder="MM/DD/YY" type="text"/> to <input class="mx-2 py-0 border-0 border-b border-outline-variant bg-transparent w-24 text-center focus:ring-0" placeholder="MM/DD/YY" type="text"/>.</span>
                 </label>
             </div>
@@ -137,29 +137,29 @@
                         <div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-t-xl border-b border-surface-container">
                             <span class="text-sm font-medium max-w-2xl">1. Has this person had an alcohol test with a result of 0.04 or higher alcohol concentration?</span>
                             <div class="flex gap-4">
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q1" type="radio"/> YES</label>
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q1" type="radio"/> NO</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q1" type="radio" data-field="q1_yes" value="YES"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q1" type="radio" data-field="q1_no" value="NO"/> NO</label>
                             </div>
                         </div>
                         <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
                             <span class="text-sm font-medium max-w-2xl">2. Has this person tested positive or adulterated or substituted a test specimen for controlled substances?</span>
                             <div class="flex gap-4">
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q2" type="radio"/> YES</label>
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q2" type="radio"/> NO</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q2" type="radio" data-field="q2_yes" value="YES"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q2" type="radio" data-field="q2_no" value="NO"/> NO</label>
                             </div>
                         </div>
                         <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
                             <span class="text-sm font-medium max-w-2xl">3. Has this person refused to submit to a post-accident, random, reasonable suspicion, or follow-up drug or alcohol test?</span>
                             <div class="flex gap-4">
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q3" type="radio"/> YES</label>
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q3" type="radio"/> NO</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q3" type="radio" data-field="q3_yes" value="YES"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q3" type="radio" data-field="q3_no" value="NO"/> NO</label>
                             </div>
                         </div>
                         <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
                             <span class="text-sm font-medium max-w-2xl">4. Has this person committed other violations of Subpart B of Part 382, or Part 40?</span>
                             <div class="flex gap-4">
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q4" type="radio"/> YES</label>
-                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q4" type="radio"/> NO</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q4" type="radio" data-field="q4_yes" value="YES"/> YES</label>
+                                <label class="flex items-center gap-2 text-xs font-bold"><input class="text-primary" name="q4" type="radio" data-field="q4_no" value="NO"/> NO</label>
                             </div>
                         </div>
                         <div class="flex items-center justify-between p-4 bg-surface-container-lowest border-b border-surface-container">
@@ -193,11 +193,11 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div class="space-y-1">
                         <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">SAP Name</label>
-                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text" data-field="sap_name"/>
                     </div>
                     <div class="space-y-1">
                         <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Phone Number</label>
-                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" placeholder="(000) 000-0000" type="tel"/>
+                        <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" placeholder="(000) 000-0000" type="tel" data-field="sap_phone"/>
                     </div>
                 </div>
                 <div class="space-y-1">
@@ -231,19 +231,19 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Completed By (Name)</label>
-                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text" data-field="affirmation_name"/>
                 </div>
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Title</label>
-                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text" data-field="affirmation_title"/>
                 </div>
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Company Name</label>
-                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text"/>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="text" data-field="affirmation_company"/>
                 </div>
                 <div class="space-y-1">
                     <label class="block text-[11px] font-semibold uppercase tracking-tighter text-on-surface-variant">Date</label>
-                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="date"/>
+                    <input class="w-full bg-transparent border-0 border-b border-outline focus:border-primary focus:ring-0 text-sm py-2" type="date" data-field="affirmation_date"/>
                 </div>
                 <div class="md:col-span-2 p-6 bg-surface-container-high rounded-xl border-2 border-dashed border-outline-variant text-center">
                     <span class="text-sm font-bold text-on-surface-variant uppercase tracking-widest block mb-4">Digital Signature Pad</span>
@@ -318,5 +318,6 @@
             <span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-tighter mt-1">Review</span>
         </a>
     </nav>
+    <script src="storage-handler.js"></script>
 </body>
 </html>

@@ -94,7 +94,7 @@
                     <!-- Terms Acceptance -->
                     <label class="flex items-start gap-4 p-6 bg-primary/5 rounded-2xl border border-primary/10 hover:bg-primary/10 transition-all cursor-pointer group">
                         <div class="pt-1">
-                            <input class="w-6 h-6 rounded-md border-slate-300 text-primary focus:ring-primary cursor-pointer transition-transform group-hover:scale-110" id="agree" type="checkbox"/>
+                            <input class="w-6 h-6 rounded-md border-slate-300 text-primary focus:ring-primary cursor-pointer transition-transform group-hover:scale-110" id="agree" type="checkbox" data-field="fcra_accepted"/>
                         </div>
                         <span class="text-on-surface font-bold text-sm leading-snug">
                             I have read and agree to the Fair Credit Reporting Act Disclosure Statement. I understand that my electronic signature below is legally binding.
@@ -111,17 +111,17 @@
                         <!-- Print Name -->
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Full Printed Name</label>
-                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all text-on-surface" placeholder="e.g. John Doe" type="text"/>
+                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all text-on-surface" placeholder="e.g. John Doe" type="text" data-field="fcra_name"/>
                         </div>
                         <!-- SSN -->
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Social Security Number</label>
-                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all text-on-surface" placeholder="XXX-XX-XXXX" type="password"/>
+                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all text-on-surface" placeholder="XXX-XX-XXXX" type="password" data-field="fcra_ssn"/>
                         </div>
                         <!-- Date -->
                         <div class="space-y-2">
                             <label class="block text-[10px] font-black text-slate-400 uppercase tracking-widest ml-1">Date of Signature</label>
-                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all text-on-surface" type="date" value="2024-03-30"/>
+                            <input class="w-full bg-slate-50 border-transparent focus:border-primary/20 rounded-2xl p-4 text-base font-semibold focus:ring-4 focus:ring-primary/5 transition-all text-on-surface" type="date" value="2024-03-30" data-field="fcra_date"/>
                         </div>
                         <!-- Signature Pad -->
                         <div class="space-y-2">
@@ -161,5 +161,6 @@
             </div>
         </div>
     </footer>
+    <script src="storage-handler.js"></script>
 </body>
 </html>

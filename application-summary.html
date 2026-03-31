@@ -26,71 +26,46 @@
         }
     </script>
     <style>
-        .legal-doc {
-            background-color: white;
-            line-height: 1.6;
-        }
+        .legal-doc { background-color: white; line-height: 1.7; }
         .watermark {
-            position: fixed;
-            top: 50%;
-            left: 50%;
+            position: fixed; top: 50%; left: 50%;
             transform: translate(-50%, -50%) rotate(-45deg);
-            font-size: 8rem;
-            color: rgba(0, 47, 108, 0.02);
-            pointer-events: none;
-            white-space: nowrap;
-            font-weight: 900;
-            z-index: 0;
+            font-size: 7rem; color: rgba(0, 47, 108, 0.02);
+            pointer-events: none; white-space: nowrap; font-weight: 900; z-index: 0;
         }
         .section-header {
-            border-bottom: 2px solid #002F6C;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-            font-weight: 900;
-            letter-spacing: -0.02em;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            color: #002F6C;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            border-bottom: 2px solid #002F6C; padding-bottom: 0.5rem; margin-bottom: 1.5rem;
+            font-weight: 900; letter-spacing: -0.02em; text-transform: uppercase;
+            font-size: 0.7rem; color: #002F6C;
+            display: flex; justify-content: space-between; align-items: center;
         }
-        .data-label {
-            font-size: 10px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: #94a3b8;
-            margin-bottom: 0.25rem;
-            display: block;
+        .dl { font-size: 10px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: #94a3b8; margin-bottom: 2px; display: block; }
+        .dv { font-size: 0.8rem; font-weight: 700; color: #1e293b; min-height: 1.2em; }
+        .dv:empty::after { content: '—'; color: #cbd5e1; }
+        .badge-ok {
+            background: #f0fdf4; color: #15803d; border: 1px solid #bbf7d0;
+            padding: 0.35rem 0.75rem; border-radius: 0.5rem; font-size: 10px;
+            font-weight: 800; display: inline-flex; align-items: center; gap: 0.4rem;
         }
-        .data-value {
-            font-size: 0.875rem;
-            font-weight: 700;
-            color: #1e293b;
+        .badge-no {
+            background: #fef2f2; color: #b91c1c; border: 1px solid #fecaca;
+            padding: 0.35rem 0.75rem; border-radius: 0.5rem; font-size: 10px;
+            font-weight: 800; display: inline-flex; align-items: center; gap: 0.4rem;
         }
-        .acceptance-badge {
-            background-color: #f0fdf4;
-            color: #15803d;
-            border: 1px solid #bbf7d0;
-            padding: 0.5rem 1rem;
-            border-radius: 0.5rem;
-            font-size: 11px;
-            font-weight: 800;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
+        .chk-row { display: flex; align-items: center; gap: 0.5rem; font-size: 12px; font-weight: 600; color: #475569; }
+        .chk-row .icon { font-size: 16px; }
+        .chk-row .icon.yes { color: #15803d; }
+        .chk-row .icon.no { color: #cbd5e1; }
         @media print {
-            .no-print { display: none; }
+            .no-print { display: none !important; }
             body { background: white; }
-            .legal-doc { padding: 0; }
+            .legal-doc { box-shadow: none; }
         }
     </style>
 </head>
 <body class="bg-slate-100 text-slate-900 font-body">
 
-    <!-- Header (No-Print) -->
+    <!-- Header -->
     <header class="no-print fixed top-0 left-0 w-full z-50 bg-white/95 backdrop-blur-md flex justify-between items-center px-6 md:px-12 h-20 border-b border-slate-100">
         <div class="flex justify-between items-center w-full max-w-7xl mx-auto">
             <div class="flex items-center gap-3">
@@ -101,305 +76,297 @@
                     Comprehensive <span class="text-primary-light opacity-80">Legal Record</span>
                 </h1>
             </div>
-            <div class="flex gap-4">
-                <button onclick="window.location.href='final-certification.html'" class="text-xs font-bold text-slate-400 hover:text-primary transition-colors">
-                    BACK TO CERTIFICATION
-                </button>
-                <button onclick="window.print()" class="flex items-center gap-2 bg-primary text-white px-6 py-2 rounded-xl text-xs font-bold shadow-lg shadow-primary/20 hover:bg-primary-dark transition-all">
-                    <span class="material-symbols-outlined text-sm">print</span>
-                    PRINT COMPLETED RECORD
+            <div class="flex gap-3">
+                <button onclick="window.location.href='final-certification.html'" class="text-xs font-bold text-slate-400 hover:text-primary transition-colors px-4 py-2">← BACK</button>
+                <button onclick="window.print()" class="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-xl text-xs font-bold shadow-lg hover:bg-primary-dark transition-all">
+                    <span class="material-symbols-outlined text-sm">print</span> PRINT PDF
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-5xl mx-auto px-6 py-32 space-y-12 relative">
-        <div class="watermark">OFFICIAL APPLICATION RECORD</div>
+    <main class="max-w-5xl mx-auto px-6 py-32 space-y-10 relative">
+        <div class="watermark">CTS OFFICIAL RECORD</div>
 
-        <!-- Master Legal Document -->
-        <article class="legal-doc rounded-[3rem] p-12 md:p-24 shadow-2xl relative z-10">
-            
-            <!-- DOC INFO -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20 border-b-8 border-primary pb-12">
-                <div class="space-y-4">
-                    <h2 class="text-5xl font-black text-primary leading-none tracking-tighter uppercase">COMPREHENSIVE BINDER</h2>
-                    <p class="text-sm font-bold text-slate-400 tracking-[0.2em] uppercase">CTS TRANSPORTATION • RECRUITMENT DIVISION</p>
+        <article class="legal-doc rounded-[2.5rem] p-10 md:p-20 shadow-2xl relative z-10">
+
+            <!-- DOC HEADER -->
+            <div class="flex flex-col md:flex-row justify-between items-start gap-8 mb-16 border-b-4 border-primary pb-8">
+                <div>
+                    <h2 class="text-4xl font-black text-primary tracking-tighter uppercase leading-none">COMPREHENSIVE<br>APPLICATION BINDER</h2>
+                    <p class="text-[10px] font-bold text-slate-400 tracking-[0.3em] uppercase mt-3">CTS TRANSPORTATION • RECRUITMENT DIVISION</p>
                 </div>
-                <div class="text-right space-y-2">
-                    <div class="inline-block p-4 border-2 border-primary/20 rounded-2xl bg-primary/5">
-                        <span class="block text-[10px] font-black text-primary uppercase tracking-widest leading-none">Record Reference</span>
-                        <span class="text-2xl font-black text-primary font-headline">APP-982-SMI-2024</span>
+                <div class="text-right shrink-0">
+                    <div class="inline-block p-3 border-2 border-primary/20 rounded-xl bg-primary/5">
+                        <span class="block text-[9px] font-black text-primary uppercase tracking-widest">Reference</span>
+                        <span class="text-lg font-black text-primary font-headline" id="doc-ref">APP-000</span>
                     </div>
-                    <p class="text-[10px] font-bold text-slate-400">TIMESTAMP: 2024-03-30 17:40:22 PST</p>
+                    <p class="text-[9px] font-bold text-slate-400 mt-2" id="doc-timestamp"></p>
                 </div>
             </div>
 
-            <div class="space-y-20">
-                
-                <!-- SECTION 1: W-9 COMPLIANCE & PERSONAL -->
-                <section>
-                    <header class="section-header">
-                        <span>Section 01: Identification & Taxation (W-9 Compliance)</span>
-                        <span class="text-[10px] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded">VERIFIED DATA</span>
-                    </header>
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-8">
-                        <div>
-                            <span class="data-label">Legal Name</span>
-                            <span class="data-value">JOHNATHAN D. SMITH</span>
-                        </div>
-                        <div>
-                            <span class="data-label">Business Type</span>
-                            <span class="data-value">Individual / Sole Proprietor</span>
-                        </div>
-                        <div>
-                            <span class="data-label">Tax ID Type</span>
-                            <span class="data-value">Social Security Number</span>
-                        </div>
-                        <div class="col-span-2">
-                            <span class="data-label">Street Address</span>
-                            <span class="data-value">123 Logistics Parkway, Suite 400</span>
-                        </div>
-                        <div>
-                            <span class="data-label">City, State, ZIP</span>
-                            <span class="data-value">Chicago, IL 60601</span>
-                        </div>
-                        <div>
-                            <span class="data-label">Exemptions</span>
-                            <span class="data-value">None Claimed</span>
-                        </div>
-                        <div class="md:col-span-2 p-4 bg-slate-50 rounded-xl border border-slate-100 italic text-[11px] text-slate-500 leading-relaxed font-medium">
-                            The applicant certifies under penalties of perjury that the Social Security Number provided is correct and the applicant is not subject to backup withholding.
-                        </div>
-                        <div class="flex items-center">
-                            <span class="acceptance-badge">
-                                <span class="material-symbols-outlined text-sm">verified</span>
-                                PERJURY CERTIFICATION ACCEPTED
-                            </span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 2: DRIVER QUALIFICATIONS -->
-                <section>
-                    <header class="section-header">
-                        <span>Section 02: Operator Credentials & Identification</span>
-                    </header>
-                    <div class="grid grid-cols-1 md:grid-cols-4 gap-y-10 gap-x-8">
-                        <div>
-                            <span class="data-label">License Number</span>
-                            <span class="data-value">CDL-IL-918273645</span>
-                        </div>
-                        <div>
-                            <span class="data-label">Class</span>
-                            <span class="data-value">CLASS A (CDL)</span>
-                        </div>
-                        <div>
-                            <span class="data-label">State of Issue</span>
-                            <span class="data-value">Illinois</span>
-                        </div>
-                        <div>
-                            <span class="data-label">Expiration</span>
-                            <span class="data-value">12/31/2026</span>
-                        </div>
-                        <div class="col-span-2">
-                            <span class="data-label">Active Endorsements</span>
-                            <div class="flex gap-2 mt-1">
-                                <span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded">H</span>
-                                <span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded">N</span>
-                                <span class="bg-primary text-white text-[10px] font-bold px-2 py-0.5 rounded">P</span>
-                            </div>
-                        </div>
-                        <div class="col-span-2">
-                            <span class="data-label">Restrictions</span>
-                            <span class="data-value">No Manual Transmission (E)</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 3: AUTHORIZATION & RELEASE -->
-                <section>
-                    <header class="section-header">
-                        <span>Section 03: Legal Authorization & Privacy Waiver</span>
-                    </header>
-                    <div class="bg-slate-50 p-10 rounded-[2rem] border border-slate-100 space-y-6">
-                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest leading-none">Binding Legal Agreement:</p>
-                        <p class="text-[13px] text-slate-600 leading-loose italic">
-                            "I authorize CTS TRANSPORTATION to make such investigations and inquiries of my personal, employment, financial or medical history and other related matters as may be necessary in arriving at a decision. I hereby release employers, schools, health care providers and other persons from all liability in responding to inquiries and releasing information in connection with my application."
-                        </p>
-                        <div class="pt-4 border-t border-slate-200">
-                            <div class="acceptance-badge">
-                                <span class="material-symbols-outlined text-sm">check_circle</span>
-                                ELECTRONICALLY SIGNED & WAIVED BY APPLICANT
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 4: EMPLOYMENT RECORD -->
-                <section>
-                    <header class="section-header">
-                        <span>Section 04: Industrial Experience History (10 Yrs)</span>
-                    </header>
-                    <div class="space-y-12">
-                        <!-- Job 1 -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 border-b border-slate-100">
-                            <div class="md:col-span-2">
-                                <span class="data-label">Previous Employer / Location</span>
-                                <span class="data-value">Swift Transportation - Joliet, IL</span>
-                            </div>
-                            <div>
-                                <span class="data-label">Dates of Tenure</span>
-                                <span class="data-value">01/2020 - Present</span>
-                            </div>
-                            <div>
-                                <span class="data-label">Status</span>
-                                <span class="bg-primary/5 text-primary text-[10px] font-black px-3 py-1 rounded">CURRENT</span>
-                            </div>
-                            <div class="md:col-span-4">
-                                <span class="data-label">Reason for Departure</span>
-                                <span class="text-sm font-medium text-slate-600 italic">Seeking regional growth and long-haul opportunities...</span>
-                            </div>
-                        </div>
-                        <!-- Job 2 -->
-                        <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-8">
-                            <div class="md:col-span-2">
-                                <span class="data-label">Previous Employer / Location</span>
-                                <span class="data-value">Roadrunner Freight - Gary, IN</span>
-                            </div>
-                            <div>
-                                <span class="data-label">Dates of Tenure</span>
-                                <span class="data-value">03/2016 - 12/2019</span>
-                            </div>
-                            <div>
-                            </div>
-                            <div class="md:col-span-4">
-                                <span class="data-label">Reason for Departure</span>
-                                <span class="text-sm font-medium text-slate-600 italic">Voluntary resignation following relocation.</span>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 5: SAFETY COMPLIANCE -->
-                <section>
-                    <header class="section-header">
-                        <span>Section 05: DOT Safety Performance Questionnaire</span>
-                    </header>
-                    <div class="space-y-px rounded-3xl overflow-hidden border border-slate-100 shadow-sm">
-                        <div class="flex justify-between items-center p-6 bg-slate-50 border-b border-white">
-                            <span class="text-xs font-bold text-slate-600">Alcohol concentration test result 0.04 or higher?</span>
-                            <span class="text-xs font-black text-slate-400">NO</span>
-                        </div>
-                        <div class="flex justify-between items-center p-6 bg-slate-50 border-b border-white">
-                            <span class="text-xs font-bold text-slate-600">Positive or adulterated specimen for controlled substances?</span>
-                            <span class="text-xs font-black text-slate-400">NO</span>
-                        </div>
-                        <div class="flex justify-between items-center p-6 bg-slate-50 border-b border-white">
-                            <span class="text-xs font-bold text-slate-600">Refused to submit to a DOT drug or alcohol test?</span>
-                            <span class="text-xs font-black text-slate-400">NO</span>
-                        </div>
-                        <div class="flex justify-between items-center p-6 bg-slate-50 border-b border-white">
-                            <span class="text-xs font-bold text-slate-600">Any other DOT safety regulation violations?</span>
-                            <span class="text-xs font-black text-slate-400">NO</span>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- SECTION 6: FCRA & CERTIFICATION -->
-                <section>
-                    <header class="section-header">
-                        <span>Section 06: Statutory Disclosures & Final Execution</span>
-                    </header>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                        <div class="space-y-6">
-                            <div class="acceptance-badge w-full justify-between">
-                                <span class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-sm">gavel</span>
-                                    FCRA DISCLOSURE ACCEPTED
-                                </span>
-                                <span class="opacity-50">98% PHASE</span>
-                            </div>
-                            <div class="acceptance-badge w-full justify-between">
-                                <span class="flex items-center gap-2">
-                                    <span class="material-symbols-outlined text-sm">history_edu</span>
-                                    FINAL CERTIFICATION SIGNED
-                                </span>
-                                <span class="opacity-50">100% PHASE</span>
-                            </div>
-                        </div>
-                        <div class="space-y-8 p-8 bg-primary/5 rounded-[2rem] border border-primary/10">
-                            <div class="space-y-2">
-                                <span class="data-label">Legal Signature Proof</span>
-                                <div class="h-20 border-b-2 border-primary flex items-end pb-2">
-                                    <span class="font-['Outfit'] italic text-3xl font-light text-primary">Johnathan D. Smith</span>
-                                </div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <span class="data-label">Date Submitted</span>
-                                    <span class="text-xs font-bold text-slate-700">MARCH 30, 2024</span>
-                                </div>
-                                <div>
-                                    <span class="data-label">IP Address Registry</span>
-                                    <span class="text-[10px] font-mono text-slate-400">192.112.XX.XXX</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
+            <div class="space-y-16" id="sections-container">
+                <!-- Sections are dynamically generated by JavaScript -->
+                <div class="text-center py-20 text-slate-300">
+                    <span class="material-symbols-outlined text-6xl mb-4">hourglass_empty</span>
+                    <p class="text-sm font-bold">Loading application data...</p>
+                </div>
             </div>
 
             <!-- CLOSING SEAL -->
-            <div class="mt-32 pt-20 border-t-8 border-slate-100 flex justify-between items-center">
+            <div class="mt-24 pt-12 border-t-4 border-slate-100 flex justify-between items-center">
                 <div class="flex items-center gap-4">
-                    <div class="w-20 h-20 rounded-full border-4 border-slate-100 flex items-center justify-center text-slate-100 p-2">
-                        <span class="material-symbols-outlined text-5xl">verified</span>
+                    <div class="w-16 h-16 rounded-full border-4 border-slate-100 flex items-center justify-center text-slate-200">
+                        <span class="material-symbols-outlined text-4xl">verified</span>
                     </div>
-                    <div class="space-y-1">
-                        <p class="text-lg font-black text-slate-800">CTS OFFICIAL RECORD</p>
-                        <p class="text-xs font-bold text-slate-400 uppercase tracking-widest leading-none">End of documented application file</p>
+                    <div>
+                        <p class="text-sm font-black text-slate-800">CTS OFFICIAL RECORD</p>
+                        <p class="text-[9px] font-bold text-slate-400 uppercase tracking-widest">End of documented application file</p>
                     </div>
-                </div>
-                <div class="text-right">
-                    <img class="w-16 h-16 opacity-30 grayscale saturate-0" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQqA8c7tXW4jEEn0H8y_v0-M-QGvX-n_7s8u3w4v5y6z7x8A9B0C1D2E3F4G5H6I7J8K9L0M1N2O"/>
                 </div>
             </div>
 
         </article>
 
-        <!-- Final Action Binder (No-Print) -->
-        <div class="no-print bg-white p-12 md:p-16 rounded-[3.5rem] border-2 border-primary/10 shadow-3xl shadow-primary/10 space-y-10 text-center relative z-20">
-            <div class="space-y-4">
-                <div class="inline-flex p-5 bg-accent/20 text-accent rounded-full mb-4">
-                    <span class="material-symbols-outlined text-4xl">cloud_done</span>
-                </div>
-                <h3 class="text-4xl font-black text-primary tracking-tighter">SUBMIT OFFICIAL RECORD</h3>
-                <p class="text-on-surface-variant font-semibold max-w-2xl mx-auto text-lg leading-relaxed">
-                    By clicking below, you transmit this comprehensive legal record to CTS Transportation. 
-                    This action is <span class="text-primary underline">final</span> and cannot be undone.
-                </p>
-            </div>
-            
-            <div class="flex flex-col md:flex-row gap-6 max-w-2xl mx-auto pt-8 border-t border-slate-100">
-                <button onclick="window.history.back()" class="flex-1 py-5 text-sm font-black tracking-widest text-slate-400 border-2 border-slate-100 rounded-2xl hover:bg-slate-50 transition-all uppercase">
-                    Return to Review
-                </button>
-                <button onclick="confirmSubmission()" class="flex-[2] py-5 text-sm font-black tracking-widest text-white bg-primary rounded-2xl shadow-2xl shadow-primary/30 hover:bg-primary-dark active:scale-95 transition-all uppercase flex items-center justify-center gap-4">
-                    FINALIZE & TRANSMIT RECORD
-                    <span class="material-symbols-outlined text-xl">send</span>
+        <!-- SUBMIT ACTION -->
+        <div class="no-print bg-white p-12 rounded-[3rem] border-2 border-primary/10 shadow-xl text-center space-y-8">
+            <div class="inline-flex p-4 bg-accent/20 text-accent rounded-full"><span class="material-symbols-outlined text-4xl">cloud_done</span></div>
+            <h3 class="text-3xl font-black text-primary tracking-tighter">SUBMIT OFFICIAL RECORD</h3>
+            <p class="text-slate-500 font-semibold max-w-xl mx-auto">By clicking below, you transmit this legal record to CTS Transportation. This action is <span class="text-primary underline">final</span>.</p>
+            <div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto pt-6 border-t border-slate-100">
+                <button onclick="window.history.back()" class="flex-1 py-4 text-xs font-black tracking-widest text-slate-400 border-2 border-slate-100 rounded-2xl hover:bg-slate-50 transition-all uppercase">Return</button>
+                <button onclick="confirmSubmission()" class="flex-[2] py-4 text-xs font-black tracking-widest text-white bg-primary rounded-2xl shadow-2xl shadow-primary/30 hover:bg-primary-dark active:scale-95 transition-all uppercase flex items-center justify-center gap-3">
+                    FINALIZE & TRANSMIT <span class="material-symbols-outlined text-lg">send</span>
                 </button>
             </div>
         </div>
     </main>
 
+    <script src="storage-handler.js"></script>
     <script>
-        function confirmSubmission() {
-            if(confirm('Are you certain you want to officially submit your application file to CTS Transportation? This record will be legally filed.')) {
-                alert('APPLICATION RECORD TRANSMITTED SUCCESSFULLY!\n\nReference: APP-982-SMI-2024\nStatus: Pending Official Recruiter Review.\n\nYou may now close this window or print your summary.');
-            }
-        }
-    </script>
+    (function() {
+        const state = window.CTSStorage ? window.CTSStorage.loadState() : {};
+        const w9 = state.w9 || {};
+        const df = state.driver_file || {};
+        const auth = state.authorization || {};
+        const emp = state.employment || {};
+        const safety = state.safety || {};
+        const fcra = state.fcra || {};
+        const cert = state.certification || {};
 
+        // Helper: get value or dash
+        function v(val) { return val || ''; }
+        function chk(val) {
+            if (val === true) return '<span class="material-symbols-outlined icon yes">check_circle</span>';
+            return '<span class="material-symbols-outlined icon no">radio_button_unchecked</span>';
+        }
+        function badge(val, label) {
+            if (val === true) return `<span class="badge-ok"><span class="material-symbols-outlined" style="font-size:14px">verified</span>${label}</span>`;
+            return `<span class="badge-no"><span class="material-symbols-outlined" style="font-size:14px">cancel</span>NOT ${label}</span>`;
+        }
+        function getTaxClass() {
+            const types = [];
+            if (w9.tax_individual) types.push('Individual / Sole Proprietor');
+            if (w9.tax_c_corp) types.push('C Corporation');
+            if (w9.tax_s_corp) types.push('S Corporation');
+            if (w9.tax_partnership) types.push('Partnership / LP');
+            if (w9.tax_llc) types.push('LLC' + (w9.llc_classification ? ' (' + w9.llc_classification + ')' : ''));
+            return types.join(', ') || '—';
+        }
+
+        // Set header
+        document.getElementById('doc-ref').textContent = 'APP-' + Math.floor(Math.random()*9000+1000);
+        document.getElementById('doc-timestamp').textContent = 'Generated: ' + new Date().toLocaleString();
+
+        // Build all sections
+        const container = document.getElementById('sections-container');
+        container.innerHTML = `
+
+        <!-- SECTION 1: W-9 -->
+        <section>
+            <header class="section-header"><span>Section 01 — W-9 Compliance & Taxpayer Identification</span></header>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8">
+                <div class="col-span-2"><span class="dl">Legal Name</span><span class="dv">${v(w9.legal_name)}</span></div>
+                <div class="col-span-2"><span class="dl">Business / DBA Name</span><span class="dv">${v(w9.business_name)}</span></div>
+                <div class="col-span-2"><span class="dl">Federal Tax Classification</span><span class="dv">${getTaxClass()}</span></div>
+                <div><span class="dl">Payee Code</span><span class="dv">${v(w9.payee_code)}</span></div>
+                <div><span class="dl">FATCA Code</span><span class="dv">${v(w9.fatca_code)}</span></div>
+                <div class="col-span-2"><span class="dl">Address</span><span class="dv">${v(w9.address)}</span></div>
+                <div class="col-span-2"><span class="dl">City, State, ZIP</span><span class="dv">${v(w9.city_state_zip)}</span></div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: DRIVER FILE -->
+        <section>
+            <header class="section-header"><span>Section 02 — Operator Credentials & Compliance Checklist</span></header>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8 mb-8">
+                <div class="col-span-2"><span class="dl">Driver's Name</span><span class="dv">${v(df.driver_name)}</span></div>
+                <div><span class="dl">SSN</span><span class="dv">${df.driver_ssn ? '•••-••-••••' : ''}</span></div>
+                <div><span class="dl">Date of Birth</span><span class="dv">${v(df.driver_dob)}</span></div>
+                <div><span class="dl">License Number</span><span class="dv">${v(df.dl_number)}</span></div>
+                <div><span class="dl">State</span><span class="dv">${v(df.dl_state)}</span></div>
+                <div><span class="dl">Class</span><span class="dv">${v(df.dl_class)}</span></div>
+                <div><span class="dl">CDL Endorsement</span>${badge(df.cdl_endorsement, 'ENDORSED')}</div>
+            </div>
+            <p class="dl mb-3">Document Compliance Checklist</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 bg-slate-50 p-6 rounded-2xl">
+                <div class="chk-row">${chk(df.chk_completed_app)} Completed & Signed Application</div>
+                <div class="chk-row">${chk(df.chk_10yr_history)} 10yrs Employment History</div>
+                <div class="chk-row">${chk(df.chk_employment_verify)} Employment Verification & Drug Inquiry</div>
+                <div class="chk-row">${chk(df.chk_physical_exam)} Driver Physical Exam (Exp: ${v(df.physical_exp_date)})</div>
+                <div class="chk-row">${chk(df.chk_valid_license)} Valid License (Exp: ${v(df.license_exp_date)})</div>
+                <div class="chk-row">${chk(df.chk_mvr)} MVR  ${chk(df.chk_doctor_cert)} Doctor Cert  ${chk(df.chk_eligibility)} Eligibility  ${chk(df.chk_renewed)} Renewed</div>
+                <div class="chk-row">${chk(df.chk_ss_card)} SS Card  ${chk(df.chk_twic)} TWIC  ${chk(df.chk_resident_card)} Resident Card</div>
+                <div class="chk-row">${chk(df.chk_mvr_original)} MVR Original (${v(df.mvr_original_date)})  ${chk(df.chk_psp_report)} PSP Report</div>
+                <div class="chk-row">${chk(df.chk_pre_employment)} Pre-Employment (${v(df.pre_employment_date)})  ${chk(df.chk_coc)} COC</div>
+                <div class="chk-row">${chk(df.chk_prev_pre_emp)} Previous Pre-Emp Statement</div>
+                <div class="chk-row">${chk(df.chk_policy_copy)} Received Policy Copy  ${chk(df.chk_dot_consent)} DOT Testing Consent</div>
+                <div class="chk-row">${chk(df.chk_i9)} I-9 Verification  ${chk(df.chk_dach)} DACH (Exp: ${v(df.dach_query_exp)})</div>
+                <div class="chk-row">${chk(df.chk_hazmat)} HazMat (${v(df.hazmat_exp_date)})  ${chk(df.chk_h2s)} H2S (${v(df.h2s_exp_date)})</div>
+                <div class="chk-row">${chk(df.chk_road_test)} Road Test  ${chk(df.chk_signed_ack)} Signed Acknowledgements</div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: AUTHORIZATION -->
+        <section>
+            <header class="section-header"><span>Section 03 — Authorization, Experience & Background</span></header>
+            <div class="mb-6">${badge(auth.auth_terms_accepted, 'AUTHORIZATION TERMS ACCEPTED')}</div>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-y-6 gap-x-8 mb-8">
+                <div><span class="dl">Equipment Class</span><span class="dv">${v(auth.equipment_class)}</span></div>
+                <div><span class="dl">Years of Experience</span><span class="dv">${v(auth.years_exp)}</span></div>
+                <div><span class="dl">Total Miles</span><span class="dv">${v(auth.total_miles)}</span></div>
+            </div>
+            <p class="dl mb-2">Accident Record</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-4 gap-x-6 bg-slate-50 p-5 rounded-xl mb-8">
+                <div><span class="dl">Event Date</span><span class="dv">${v(auth.accident_date)}</span></div>
+                <div><span class="dl">Nature</span><span class="dv">${v(auth.accident_nature)}</span></div>
+                <div><span class="dl">Fatalities</span><span class="dv">${v(auth.fatalities)}</span></div>
+                <div><span class="dl">Injuries</span><span class="dv">${v(auth.injuries)}</span></div>
+            </div>
+            <p class="dl mb-2">Background & Security Questions</p>
+            <div class="space-y-3 bg-slate-50 p-5 rounded-xl mb-8">
+                <div class="flex justify-between items-center text-xs font-semibold">
+                    <span>Ever been denied a license/permit/privilege?</span>
+                    <span class="font-black">${auth.denied_yes === 'YES' ? 'YES' : 'NO'}</span>
+                </div>
+                ${auth.denied_details ? '<div class="text-xs text-slate-500 italic pl-4">' + auth.denied_details + '</div>' : ''}
+                <div class="flex justify-between items-center text-xs font-semibold border-t border-slate-200 pt-3">
+                    <span>License/permit suspended or revoked?</span>
+                    <span class="font-black">${auth.revoked_yes === 'YES' ? 'YES' : 'NO'}</span>
+                </div>
+                ${auth.revoked_details ? '<div class="text-xs text-slate-500 italic pl-4">' + auth.revoked_details + '</div>' : ''}
+            </div>
+            <p class="dl mb-2">Emergency Contact</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div><span class="dl">Name</span><span class="dv">${v(auth.emergency_name)}</span></div>
+                <div><span class="dl">Phone</span><span class="dv">${v(auth.emergency_phone)}</span></div>
+                <div><span class="dl">Relationship</span><span class="dv">${v(auth.emergency_relationship)}</span></div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: EMPLOYMENT HISTORY -->
+        <section>
+            <header class="section-header"><span>Section 04 — Employment Record (Most Recent)</span></header>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-y-6 gap-x-8 mb-6">
+                <div class="col-span-2"><span class="dl">Company Name</span><span class="dv">${v(emp.emp1_company)}</span></div>
+                <div><span class="dl">Contact Person</span><span class="dv">${v(emp.emp1_contact)}</span></div>
+                <div><span class="dl">Phone</span><span class="dv">${v(emp.emp1_phone)}</span></div>
+                <div><span class="dl">City</span><span class="dv">${v(emp.emp1_city)}</span></div>
+                <div><span class="dl">State</span><span class="dv">${v(emp.emp1_state)}</span></div>
+                <div><span class="dl">ZIP</span><span class="dv">${v(emp.emp1_zip)}</span></div>
+                <div></div>
+                <div><span class="dl">From Date</span><span class="dv">${v(emp.emp1_from)}</span></div>
+                <div><span class="dl">To Date</span><span class="dv">${v(emp.emp1_to)}</span></div>
+                <div><span class="dl">Position</span><span class="dv">${v(emp.emp1_position)}</span></div>
+                <div><span class="dl">Trailer Type</span><span class="dv">${v(emp.emp1_trailer)}</span></div>
+            </div>
+            <div class="mb-4"><span class="dl">Reason for Leaving</span><span class="dv">${v(emp.emp1_reason)}</span></div>
+            <div class="flex gap-4 flex-wrap">
+                ${badge(emp.emp1_fmcsr, 'SUBJECT TO FMCSRs')}
+                ${badge(emp.emp1_safety_sensitive, 'SAFETY-SENSITIVE FUNCTION')}
+            </div>
+        </section>
+
+        <!-- SECTION 5: SAFETY PERFORMANCE -->
+        <section>
+            <header class="section-header"><span>Section 05 — DOT Safety Performance History</span></header>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div><span class="dl">Applicant Name</span><span class="dv">${v(safety.safety_applicant)}</span></div>
+                <div><span class="dl">SSN</span><span class="dv">${safety.safety_ssn ? '•••-••-••••' : ''}</span></div>
+                <div><span class="dl">Employer</span><span class="dv">${v(safety.safety_employer)}</span></div>
+            </div>
+            <p class="dl mb-2">Drug & Alcohol Questionnaire (Past 3 Years)</p>
+            <div class="space-y-px rounded-xl overflow-hidden border border-slate-100 mb-6">
+                <div class="flex justify-between items-center p-4 bg-slate-50 border-b border-white text-xs font-semibold">
+                    <span>1. Alcohol test 0.04 or higher?</span>
+                    <span class="font-black">${safety.q1_yes === 'YES' ? 'YES' : (safety.q1_no === 'NO' ? 'NO' : '—')}</span>
+                </div>
+                <div class="flex justify-between items-center p-4 bg-slate-50 border-b border-white text-xs font-semibold">
+                    <span>2. Positive/adulterated controlled substance test?</span>
+                    <span class="font-black">${safety.q2_yes === 'YES' ? 'YES' : (safety.q2_no === 'NO' ? 'NO' : '—')}</span>
+                </div>
+                <div class="flex justify-between items-center p-4 bg-slate-50 border-b border-white text-xs font-semibold">
+                    <span>3. Refused DOT drug/alcohol test?</span>
+                    <span class="font-black">${safety.q3_yes === 'YES' ? 'YES' : (safety.q3_no === 'NO' ? 'NO' : '—')}</span>
+                </div>
+                <div class="flex justify-between items-center p-4 bg-slate-50 text-xs font-semibold">
+                    <span>4. Other DOT safety violations?</span>
+                    <span class="font-black">${safety.q4_yes === 'YES' ? 'YES' : (safety.q4_no === 'NO' ? 'NO' : '—')}</span>
+                </div>
+            </div>
+            <p class="dl mb-2">SAP Professional Information</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div><span class="dl">SAP Name</span><span class="dv">${v(safety.sap_name)}</span></div>
+                <div><span class="dl">SAP Phone</span><span class="dv">${v(safety.sap_phone)}</span></div>
+            </div>
+            <p class="dl mb-2">Affirmation / Completed By</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div><span class="dl">Name</span><span class="dv">${v(safety.affirmation_name)}</span></div>
+                <div><span class="dl">Title</span><span class="dv">${v(safety.affirmation_title)}</span></div>
+                <div><span class="dl">Company</span><span class="dv">${v(safety.affirmation_company)}</span></div>
+                <div><span class="dl">Date</span><span class="dv">${v(safety.affirmation_date)}</span></div>
+            </div>
+        </section>
+
+        <!-- SECTION 6: FCRA -->
+        <section>
+            <header class="section-header"><span>Section 06 — FCRA Disclosure Statement</span></header>
+            <div class="mb-4">${badge(fcra.fcra_accepted, 'FCRA DISCLOSURE ACCEPTED')}</div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+                <div><span class="dl">Full Printed Name</span><span class="dv">${v(fcra.fcra_name)}</span></div>
+                <div><span class="dl">SSN</span><span class="dv">${fcra.fcra_ssn ? '•••-••-••••' : ''}</span></div>
+                <div><span class="dl">Date of Signature</span><span class="dv">${v(fcra.fcra_date)}</span></div>
+            </div>
+            <div class="bg-slate-50 p-6 rounded-xl border border-slate-100 italic text-xs text-slate-500 leading-relaxed">
+                "In accordance with the provisions of Section 604 (b)(2)(A) of the Fair Credit Reporting Act, the applicant was informed that consumer reports may be obtained for the purpose of evaluating employment, and the applicant has acknowledged and accepted this disclosure."
+            </div>
+        </section>
+
+        <!-- SECTION 7: FINAL CERTIFICATION -->
+        <section>
+            <header class="section-header"><span>Section 07 — Final Certification & Digital Signature</span></header>
+            <div class="mb-6">${badge(cert.cert_honesty, 'CERTIFIED WITH HONESTY')}</div>
+            <div class="bg-primary/5 p-8 rounded-2xl border border-primary/10">
+                <div class="mb-6">
+                    <span class="dl">Applicant Signature</span>
+                    <div class="h-16 border-b-2 border-primary flex items-end pb-1">
+                        <span class="font-headline italic text-2xl font-light text-primary">${v(fcra.fcra_name || w9.legal_name || df.driver_name)}</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 text-xs">
+                    <div><span class="dl">Date Submitted</span><span class="font-bold text-slate-700">${new Date().toLocaleDateString('en-US', {year:'numeric',month:'long',day:'numeric'})}</span></div>
+                    <div><span class="dl">Timestamp</span><span class="font-bold text-slate-700">${new Date().toLocaleTimeString()}</span></div>
+                </div>
+            </div>
+        </section>
+        `;
+    })();
+
+    function confirmSubmission() {
+        if (confirm('Are you certain you want to officially submit your application file to CTS Transportation?')) {
+            alert('APPLICATION TRANSMITTED SUCCESSFULLY!\\n\\nYour record has been filed. You may print this page for your records.');
+        }
+    }
+    </script>
 </body>
 </html>
