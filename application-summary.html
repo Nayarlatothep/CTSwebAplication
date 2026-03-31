@@ -129,19 +129,39 @@
         </article>
 
         <!-- SUBMIT ACTION -->
-        <div class="no-print bg-white p-12 rounded-[3rem] border-2 border-primary/10 shadow-xl text-center space-y-8">
+        <div class="no-print bg-white p-12 rounded-[3rem] border-2 border-primary/10 shadow-xl text-center space-y-8" id="submit-section">
             <div class="inline-flex p-4 bg-accent/20 text-accent rounded-full"><span class="material-symbols-outlined text-4xl">cloud_done</span></div>
             <h3 class="text-3xl font-black text-primary tracking-tighter">SUBMIT OFFICIAL RECORD</h3>
-            <p class="text-slate-500 font-semibold max-w-xl mx-auto">By clicking below, you transmit this legal record to CTS Transportation. This action is <span class="text-primary underline">final</span>.</p>
+            <p class="text-slate-500 font-semibold max-w-xl mx-auto">By clicking below, your application will be generated as a PDF and emailed directly to the CTS Transportation recruitment team. This action is <span class="text-primary underline">final</span>.</p>
             <div class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto pt-6 border-t border-slate-100">
                 <button onclick="window.history.back()" class="flex-1 py-4 text-xs font-black tracking-widest text-slate-400 border-2 border-slate-100 rounded-2xl hover:bg-slate-50 transition-all uppercase">Return</button>
-                <button onclick="confirmSubmission()" class="flex-[2] py-4 text-xs font-black tracking-widest text-white bg-primary rounded-2xl shadow-2xl shadow-primary/30 hover:bg-primary-dark active:scale-95 transition-all uppercase flex items-center justify-center gap-3">
+                <button onclick="downloadPDF()" class="flex-1 py-4 text-xs font-black tracking-widest text-primary border-2 border-primary/20 rounded-2xl hover:bg-primary/5 transition-all uppercase flex items-center justify-center gap-3">
+                    <span class="material-symbols-outlined text-lg">download</span> DOWNLOAD PDF
+                </button>
+                <button onclick="sendToEmail()" id="btn-transmit" class="flex-[2] py-4 text-xs font-black tracking-widest text-white bg-primary rounded-2xl shadow-2xl shadow-primary/30 hover:bg-primary-dark active:scale-95 transition-all uppercase flex items-center justify-center gap-3">
                     FINALIZE & TRANSMIT <span class="material-symbols-outlined text-lg">send</span>
                 </button>
             </div>
         </div>
+
+        <!-- TRANSMISSION MODAL -->
+        <div id="tx-modal" class="no-print hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-[100] flex items-center justify-center p-6">
+            <div class="bg-white rounded-[2.5rem] p-12 max-w-md w-full text-center space-y-6 shadow-2xl">
+                <div id="tx-icon" class="inline-flex p-5 rounded-full bg-primary/10 text-primary">
+                    <span class="material-symbols-outlined text-5xl animate-spin" id="tx-spinner">progress_activity</span>
+                </div>
+                <h3 class="text-2xl font-black text-primary tracking-tight" id="tx-title">Transmitting...</h3>
+                <p class="text-sm font-semibold text-slate-500" id="tx-message">Generating PDF and sending to CTS Transportation recruitment team. Please wait.</p>
+                <div class="h-2 bg-slate-100 rounded-full overflow-hidden">
+                    <div class="h-full bg-primary rounded-full transition-all duration-1000" id="tx-progress" style="width: 10%"></div>
+                </div>
+                <button onclick="closeModal()" id="tx-close" class="hidden mt-4 text-xs font-bold text-slate-400 hover:text-primary transition-colors uppercase tracking-widest">Close</button>
+            </div>
+        </div>
     </main>
 
+    <!-- html2pdf.js for local PDF download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="storage-handler.js"></script>
     <script>
     (function() {
@@ -362,10 +382,120 @@
         `;
     })();
 
-    function confirmSubmission() {
-        if (confirm('Are you certain you want to officially submit your application file to CTS Transportation?')) {
-            alert('APPLICATION TRANSMITTED SUCCESSFULLY!\\n\\nYour record has been filed. You may print this page for your records.');
+    // ============================================================
+    //  GOOGLE APPS SCRIPT ENDPOINT
+    //  Replace this URL after deploying google-apps-script.gs
+    // ============================================================
+    const GOOGLE_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+
+    // Download PDF locally using html2pdf.js
+    function downloadPDF() {
+        const article = document.querySelector('article.legal-doc');
+        const applicantName = (state.fcra?.fcra_name || state.w9?.legal_name || state.driver_file?.driver_name || 'Applicant').replace(/\s+/g, '_');
+        
+        const opt = {
+            margin: [0.5, 0.5, 0.5, 0.5],
+            filename: `CTS_Application_${applicantName}.pdf`,
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' },
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+        };
+        
+        html2pdf().set(opt).from(article).save();
+    }
+
+    // Store state globally so download and send can use it
+    const state = window.CTSStorage ? window.CTSStorage.loadState() : {};
+
+    // Send application data to Google Apps Script for PDF email
+    function sendToEmail() {
+        if (GOOGLE_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
+            alert('⚠️ SETUP REQUIRED\n\nThe Google Apps Script URL has not been configured yet.\n\nPlease follow the setup instructions:\n1. Go to script.google.com\n2. Paste the google-apps-script.gs code\n3. Deploy as Web App\n4. Copy the URL and paste it in application-summary.html');
+            return;
         }
+
+        if (!confirm('Are you certain you want to officially submit your application file to CTS Transportation?\n\nThe complete application will be emailed as a PDF to the recruitment team.')) {
+            return;
+        }
+
+        // Show modal
+        const modal = document.getElementById('tx-modal');
+        const progress = document.getElementById('tx-progress');
+        const title = document.getElementById('tx-title');
+        const message = document.getElementById('tx-message');
+        const spinner = document.getElementById('tx-spinner');
+        const icon = document.getElementById('tx-icon');
+        const closeBtn = document.getElementById('tx-close');
+        const transmitBtn = document.getElementById('btn-transmit');
+
+        modal.classList.remove('hidden');
+        transmitBtn.disabled = true;
+        transmitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+        // Animate progress
+        setTimeout(() => { progress.style.width = '30%'; }, 300);
+        setTimeout(() => { progress.style.width = '60%'; }, 1200);
+
+        // Send data to Google Apps Script
+        fetch(GOOGLE_SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors',  // Required for Google Apps Script
+            headers: { 'Content-Type': 'text/plain' },
+            body: JSON.stringify(state)
+        })
+        .then(() => {
+            // Since no-cors doesn't return body, we assume success
+            progress.style.width = '100%';
+            setTimeout(() => {
+                spinner.classList.remove('animate-spin');
+                spinner.textContent = 'check_circle';
+                icon.classList.remove('bg-primary/10', 'text-primary');
+                icon.classList.add('bg-green-100', 'text-green-600');
+                title.textContent = 'Application Transmitted!';
+                title.classList.remove('text-primary');
+                title.classList.add('text-green-700');
+                message.textContent = 'Your application PDF has been sent to the CTS Transportation recruitment team at johan.rojas@nctechsolutionsllc.com. You may download a copy for your records.';
+                closeBtn.classList.remove('hidden');
+            }, 800);
+        })
+        .catch(err => {
+            progress.style.width = '100%';
+            progress.classList.remove('bg-primary');
+            progress.classList.add('bg-red-500');
+            setTimeout(() => {
+                spinner.classList.remove('animate-spin');
+                spinner.textContent = 'error';
+                icon.classList.remove('bg-primary/10', 'text-primary');
+                icon.classList.add('bg-red-100', 'text-red-600');
+                title.textContent = 'Transmission Failed';
+                title.classList.remove('text-primary');
+                title.classList.add('text-red-700');
+                message.textContent = 'There was an error sending your application. Please try again or use the Download PDF button instead. Error: ' + err.message;
+                closeBtn.classList.remove('hidden');
+                transmitBtn.disabled = false;
+                transmitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }, 800);
+        });
+    }
+
+    function closeModal() {
+        document.getElementById('tx-modal').classList.add('hidden');
+        // Reset modal state
+        const progress = document.getElementById('tx-progress');
+        const spinner = document.getElementById('tx-spinner');
+        const icon = document.getElementById('tx-icon');
+        const title = document.getElementById('tx-title');
+        const closeBtn = document.getElementById('tx-close');
+        progress.style.width = '10%';
+        progress.classList.remove('bg-red-500');
+        progress.classList.add('bg-primary');
+        spinner.textContent = 'progress_activity';
+        spinner.classList.add('animate-spin');
+        icon.className = 'inline-flex p-5 rounded-full bg-primary/10 text-primary';
+        title.textContent = 'Transmitting...';
+        title.className = 'text-2xl font-black text-primary tracking-tight';
+        closeBtn.classList.add('hidden');
     }
     </script>
 </body>
